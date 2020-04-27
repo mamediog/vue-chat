@@ -21,11 +21,8 @@ class User {
     this.clearContactData()
   }
 
-  async register (data, token) {
-    const contactData = this.getContactData()
-    if ([contactData].includes(null)) throw new Error('empty-data')
-
-    data = { ...data, ...contactData, token }
+  async register (data) {
+    data = { ...data }
     return (await core().post('/auth/register', data)).data
   }
 
