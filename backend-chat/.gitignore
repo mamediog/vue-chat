@@ -3,10 +3,4 @@
 Homestead.json
 Homestead.yaml
 .env
-public/storage
-storage
-storage-php
-/bin/log
-./composer.json
-./composer.lock
-compress
+.phpunit.result.cache

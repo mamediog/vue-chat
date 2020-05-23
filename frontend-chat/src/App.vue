@@ -16,6 +16,18 @@ body
   text-align: center
   color: #2c3e50
 
+.chat-initial__input
+  border: none
+  box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.1)
+  width: calc(700px - 40px)
+  height: 70px
+  border-radius: $radius
+  font-size: 30px
+  padding: 20px
+  color: #595959
+  &::placeholder
+    color: #d1d1d1
+
 .chat-col--2
   display: flex
   flex-flow: row

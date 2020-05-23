@@ -1,26 +1,8 @@
 import core from './core'
-import encode from '@/utils/encode.native'
-import decode from '@/utils/decode.native'
+// import encode from '@/utils/encode.native'
+// import decode from '@/utils/decode.native'
 
 class User {
-  setContactData (data) {
-    sessionStorage.setItem('contact_data', encode(data, true))
-  }
-
-  getContactData () {
-    const data = sessionStorage.getItem('contact_data')
-    if (data === null) return null
-    return decode(data, true)
-  }
-
-  clearContactData () {
-    sessionStorage.removeItem('contact_data')
-  }
-
-  clearStorageData () {
-    this.clearContactData()
-  }
-
   async register (data) {
     data = { ...data }
     return (await core().post('/auth/register', data)).data

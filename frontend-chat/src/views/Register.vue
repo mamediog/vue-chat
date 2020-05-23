@@ -26,25 +26,14 @@
 
 <script>
 import User from '@/api/user'
+import storageEmail from '@/utils/auth/storageEmail'
+
 export default {
   name: 'Home',
   mounted () {
     this.user = new User()
 
-    if (this.$route !== undefined && this.$route.params.email !== undefined) {
-      this.form.email = this.$route.params.email
-      localStorage.setItem('user_email', this.form.email)
-    }
-
-    if (localStorage.getItem('user_email') !== undefined && localStorage.getItem('user_email') !== '') {
-      this.form.email = localStorage.getItem('user_email')
-    }
-
-    setTimeout(() => {
-      if (this.form.email === '' || this.form.email === null) {
-        this.$router.push('/')
-      }
-    }, 100)
+    this.form.email = storageEmail(this.$route)
   },
   data: () => ({
     seePass: 'password',
@@ -66,7 +55,6 @@ export default {
       try {
         var response = await this.user.register(this.form)
         console.log(response)
-        this.user.clearStorageData()
         console.log('Usuário cadastrado com sucesso!')
       } catch (error) {
         console.log(error.response)

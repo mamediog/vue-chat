@@ -1,7 +1,7 @@
 <template>
   <div class="chat-verify">
     <img alt="Vue Chat" src="../assets/logo.png" class="chat-logo">
-    <input type="email" @keyup.enter="hasUser(email)" v-model="email" placeholder="Digite seu email @" class="chat-verify__input">
+    <input type="email" @keyup.enter="hasUser(email)" v-model="email" placeholder="Digite seu email @" class="chat-initial__input">
     <button @click="hasUser(email)" class="chat-btn chat-verify__btn">Continuar</button>
   </div>
 </template>
@@ -20,9 +20,11 @@ export default {
       var response = await this.user.hasUser(email)
 
       if (response.status === 'success') {
-        console.log('Você existe')
+        this.$router.push({ path: '/login', name: 'Login', params: { email: email } })
       } else {
-        this.$router.push({ path: '/register', name: 'Register', params: { email: email } })
+        if (this.email !== '') {
+          this.$router.push({ path: '/register', name: 'Register', params: { email: email } })
+        }
       }
     }
   }
@@ -47,18 +49,6 @@ export default {
   .chat-logo
     position: fixed
     top: 15%
-
-  .chat-verify__input
-    border: none
-    box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.1)
-    width: calc(700px - 40px)
-    height: 70px
-    border-radius: 10px
-    font-size: 30px
-    padding: 20px
-    color: #595959
-    &::placeholder
-      color: #d1d1d1
 
   .chat-verify__btn
     margin-top: 20px

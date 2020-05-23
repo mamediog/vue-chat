@@ -13,9 +13,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        \App\Console\Commands\PaymentDayCommand::class,
-        \App\Console\Commands\PaymentOffCommand::class,
-        \App\Console\Commands\ManualDeployCommand::class,
+        //
     ];
 
     /**

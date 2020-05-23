@@ -11,24 +11,6 @@
 |
 */
 
-ini_set('display_errors', 'On');
-ini_set('display_startup_errors', 'On');
-ini_set('error_reporting', -1);
-ini_set('log_errors', 'On');
-
-function startsWith($haystack, $needle)
-{
-  $length = strlen($needle);
-  return (substr($haystack, 0, $length) === $needle);
-}
-
-if (isset($_GET['q'])) {
-  if (startsWith($_GET['q'], '/resizer/')) {
-    require_once __DIR__ . '/resizer.php';
-    exit;
-  }
-}
-
 $app = require __DIR__.'/../bootstrap/app.php';
 
 /*

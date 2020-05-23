@@ -6,13 +6,15 @@ $router->group(['prefix' => '/'], function ($router) {
     });
 
     $router->group(['prefix' => '/auth'], function ($router) {
-        $router->post('/register','AuthController@create');
-        $router->get('/hasuser','AuthController@hasUser');
-        
-        $router->get('/verify/{token}','AuthController@getEmailByToken');
-        $router->post('/login','AuthController@login');
-        $router->get('/verify','AuthController@verify');
+        $router->post('/login', 'AuthController@login');
+        $router->post('/register','UserController@create');
+
+        $router->get('/hasuser','UserController@hasUser');
     });
 
+    $router->group(['middleware' => ['auth']], function ($router) {
+        $router->get('/users','UserController@index');
+    });
+    
+    
 });
-
