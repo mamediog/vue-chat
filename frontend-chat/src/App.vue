@@ -16,6 +16,10 @@ body
   text-align: center
   color: #2c3e50
 
+input, textarea, select
+  &:focus
+    outline: none
+
 .chat-initial__input
   border: none
   box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.1)

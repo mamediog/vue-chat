@@ -8,8 +8,7 @@ $router->group(['prefix' => '/'], function ($router) {
     $router->group(['prefix' => '/auth'], function ($router) {
         $router->post('/login', 'AuthController@login');
         $router->post('/register','UserController@create');
-
-        $router->get('/hasuser','UserController@hasUser');
+        $router->get('/islogged','AuthController@isLogged');
     });
 
     $router->group(['middleware' => ['auth']], function ($router) {

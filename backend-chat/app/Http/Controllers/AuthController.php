@@ -20,6 +20,8 @@ class AuthController extends Controller
             return response()->json(['message' => 'Unauthorized'], 401);
         }
 
+        User::where('email', $request->input('email'))->update(['api_key' => $token]);
+
         return $this->respondWithToken($token);
     }
 
@@ -37,5 +39,19 @@ class AuthController extends Controller
             'token_type' => 'bearer',
             'expires_in' => Auth::factory()->getTTL() * 60
         ], 200);
+    }
+
+    /**
+     * Verify if the user are logged
+     */
+    public function isLogged(Request $request) 
+    {
+        $user = User::where('api_key', explode(" ", $request->header('Authorization'))[1] )->first();
+
+        if ($user) {
+            return response()->json(['status' => 'success', 'user' => $user]);
+        }
+
+        return response()->json(['status' => 'Unauthorized'], 401);
     }
 }
