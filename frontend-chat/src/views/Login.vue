@@ -11,7 +11,6 @@
       />
       <input
         type="password"
-        @keyup.enter="submit"
         v-model="form.password"
         placeholder="Sua senha"
         class="chat-initial__input"
@@ -42,8 +41,10 @@ export default {
     async login () {
       try {
         var response = await this.user.login(this.form)
-        console.log(response)
-        console.log('Usuário logado com sucesso!')
+        localStorage.setItem('user_token', response.token)
+        this.user.tryAuthJWT()
+
+        this.$router.push('/about')
       } catch (error) {
         console.log(error.response)
       }

@@ -16,6 +16,10 @@ class User {
     return (await core().post('/auth/login', data)).data
   }
 
+  async allUsers () {
+    return (await core().get('/users')).data
+  }
+
   async getEmailByToken (token) {
     return (await core().get(`/auth/verify/${token}`)).data.email
   }
@@ -24,9 +28,8 @@ class User {
     try {
       const token = localStorage.getItem('user_token')
       if (token !== null) {
-        return (await core().get('/auth/verify')).data.user
+        return (await core().get('/auth/islogged')).data.user
       }
-
       return false
     } catch (error) {
       return false

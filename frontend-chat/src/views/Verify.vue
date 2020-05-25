@@ -19,7 +19,7 @@ export default {
       this.user = new User()
       var response = await this.user.hasUser(email)
 
-      if (response.status === 'success') {
+      if (response.status === true) {
         this.$router.push({ path: '/login', name: 'Login', params: { email: email } })
       } else {
         if (this.email !== '') {

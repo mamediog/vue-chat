@@ -9,12 +9,12 @@ class UserController extends Controller
     public function create(Request $request)
     {
         try {
-            $emailValidate = $request->has('token') ? ['email' => 'required|email'] : ['email' => 'required|email|unique:users'];
             $this->validate($request, [
+                'email' => 'required|email|unique:users',
                 'password' => 'required|min:6',
                 'name' => 'required',
                 'phone' => 'required'
-            ] + $emailValidate);
+            ]);
 
             if ($request->has('token')) {
                 $user->fill($request->except('password', 'confirm') + [
@@ -26,7 +26,7 @@ class UserController extends Controller
                 ]);
             }
 
-            $apikey = base64_encode(str_random(40));
+            $apikey = 'new-user';
             $user->api_key = $apikey;
             $user->save();
 
@@ -49,9 +49,9 @@ class UserController extends Controller
         $user = User::where('email',$request->email)->first();
 
         if ($user !== null) {
-            return response()->json(['status' => 'success']);
+            return response()->json(['status' => true]);
         }
 
-        return response()->json(['status' => 'failed']);
+        return response()->json(['status' => false]);
     }
 }

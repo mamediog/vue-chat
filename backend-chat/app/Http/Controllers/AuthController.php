@@ -46,8 +46,7 @@ class AuthController extends Controller
      */
     public function isLogged(Request $request) 
     {
-        $user = User::where('api_key', explode(" ", $request->header('Authorization'))[1] )->first();
-
+        $user = User::where('api_key', explode(' ', $request->header('Authorization'))[1])->first();
         if ($user) {
             return response()->json(['status' => 'success', 'user' => $user]);
         }

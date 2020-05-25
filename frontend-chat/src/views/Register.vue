@@ -32,7 +32,6 @@ export default {
   name: 'Home',
   mounted () {
     this.user = new User()
-
     this.form.email = storageEmail(this.$route)
   },
   data: () => ({

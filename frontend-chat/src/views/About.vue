@@ -1,6 +1,8 @@
 <template>
   <div class="about">
-    <span>{{currentUser}}</span>
+    <span v-for="(user, index) in users" :key="index">
+      <p>{{ user.name }}, {{ user.email }}, {{ user.phone }}</p>
+    </span>
   </div>
 </template>
 
@@ -9,13 +11,14 @@ import User from '@/api/user'
 export default {
 
   data: () => ({
-    user: null,
-    currentUser: null
+    users: null
   }),
 
   async created () {
+    console.log('TELA ABOUT')
     this.user = new User()
-    this.currentUser = await this.user.getUser('5e9f27416774b64107177222')
+
+    this.users = await this.user.allUsers()
   }
 }
 </script>
