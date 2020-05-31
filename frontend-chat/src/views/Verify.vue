@@ -1,6 +1,6 @@
 <template>
   <div class="chat-verify">
-    <img alt="Vue Chat" src="../assets/logo.png" class="chat-logo">
+    <img alt="Vue Chat" :src="`${baseURL}img/icons/logo.png`" class="chat-logo">
     <input type="email" @keyup.enter="hasUser(email)" v-model="email" placeholder="Digite seu email @" class="chat-initial__input">
     <button @click="hasUser(email)" class="chat-btn chat-verify__btn">Continuar</button>
   </div>
@@ -8,12 +8,19 @@
 
 <script>
 import User from '@/api/user'
+import basePath from '@/utils/baseURL'
+
 export default {
   name: 'Home',
   data: () => ({
     email: null,
     user: null
   }),
+  computed: {
+    baseURL () {
+      return basePath.path
+    }
+  },
   methods: {
     async hasUser (email) {
       this.user = new User()

@@ -20,10 +20,6 @@ class User {
     return (await core().get('/users')).data
   }
 
-  async getEmailByToken (token) {
-    return (await core().get(`/auth/verify/${token}`)).data.email
-  }
-
   async tryAuthJWT () {
     try {
       const token = localStorage.getItem('user_token')

@@ -13,10 +13,10 @@ const routes = [
     component: Verify
   },
   {
-    path: '/about',
-    name: 'About',
+    path: '/home',
+    name: 'Home',
     meta: { rule: 'isLogged' },
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../views/isLogged/ChatHome.vue')
   },
   {
     path: '/register',

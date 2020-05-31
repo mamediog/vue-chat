@@ -1,31 +1,50 @@
 <template>
   <div class="chat-register">
-    <img alt="Vue Chat" src="../assets/logo.png" class="chat-logo">
+    <img alt="Vue Chat" :src="form.image !== null ? form.image : `${baseURL}img/icons/logo.png`" class="chat-logo" id="chat-logo"/>
+
+    <input type="file" class="chat-input__file" @change="onInputChange()" id="chat-input__file" accept=".jpg, .jpeg, .png"/>
+
     <form @submit.prevent="register" class="chat-register__form">
-      <input type="text" readonly v-model="form.email" class="chat-input chat-register__input-email">
+      <input
+        type="text"
+        readonly
+        v-model="form.email"
+        class="chat-input chat-register__input-email"
+      />
 
       <div class="chat-register__form-box chat-col--2">
-        <input type="text" v-model="form.name" class="chat-input" placeholder="Nome e Sobrenome">
-        <input type="text" v-model="form.phone" class="chat-input" placeholder="Seu Celular">
+        <input type="text" v-model="form.name" class="chat-input" placeholder="Nome e Sobrenome" />
+        <input type="text" v-model="form.phone" class="chat-input" placeholder="Seu Celular" />
       </div>
 
       <div class="chat-col--2">
         <div class="chat-input__password">
-          <input :type="seePass" v-model="form.password" class="chat-input" placeholder="Nova Senha">
+          <input
+            :type="seePass"
+            v-model="form.password"
+            class="chat-input"
+            placeholder="Nova Senha"
+          />
           <span class="chat-seepass" v-if="seePass === 'password'" @click="hideAndShowPass">Espiar</span>
           <span class="chat-seepass" v-else @click="hideAndShowPass">Esconder</span>
         </div>
 
-        <input :type="seePass" v-model="form.confirm" class="chat-input" placeholder="Confirmar Senha">
+        <input
+          :type="seePass"
+          v-model="form.confirm"
+          class="chat-input"
+          placeholder="Confirmar Senha"
+        />
       </div>
 
-      <button type="submit" class="chat-btn chat-register__btn"> Confirmar e Cadastrar </button>
+      <button type="submit" class="chat-btn chat-register__btn">Confirmar e Cadastrar</button>
     </form>
   </div>
 </template>
 
 <script>
 import User from '@/api/user'
+import basePath from '@/utils/baseURL'
 import storageEmail from '@/utils/auth/storageEmail'
 
 export default {
@@ -33,6 +52,11 @@ export default {
   mounted () {
     this.user = new User()
     this.form.email = storageEmail(this.$route)
+  },
+  computed: {
+    baseURL () {
+      return basePath.path
+    }
   },
   data: () => ({
     seePass: 'password',
@@ -43,7 +67,8 @@ export default {
       name: null,
       phone: null,
       password: null,
-      confirm: null
+      confirm: null,
+      image: null
     }
   }),
   methods: {
@@ -57,6 +82,20 @@ export default {
         console.log('Usuário cadastrado com sucesso!')
       } catch (error) {
         console.log(error.response)
+      }
+    },
+    onInputChange (elem) {
+      var file = document.getElementById('chat-input__file').files[0]
+      var reader = new FileReader()
+
+      reader.addEventListener('load', (event) => {
+        this.form.image = event.target.result
+      })
+
+      if (file) {
+        reader.readAsDataURL(file)
+      } else {
+        this.form.image = null
       }
     }
   }
@@ -106,5 +145,4 @@ export default {
     height: 50px
     font-size: 18px
     align-self: right
-
 </style>

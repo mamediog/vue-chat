@@ -13,7 +13,7 @@ $router->group(['prefix' => '/'], function ($router) {
     });
 
     $router->group(['middleware' => ['auth']], function ($router) {
-        $router->get('/users','UserController@index');
+        //$router->get('/getuser','UserController@userLogged');
     });
 
 });

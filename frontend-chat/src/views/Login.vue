@@ -1,6 +1,6 @@
 <template>
   <div class="chat-login">
-    <img alt="Vue Chat" src="../assets/logo.png" class="chat-logo" />
+    <img alt="Vue Chat" :src="`${baseURL}img/icons/logo.png`" class="chat-logo" />
     <form @submit.prevent="login" class="chat-form__login">
       <input
         type="email"
@@ -23,6 +23,7 @@
 <script>
 import User from '@/api/user'
 import storageEmail from '@/utils/auth/storageEmail'
+import basePath from '@/utils/baseURL'
 
 export default {
   name: 'Login',
@@ -33,6 +34,11 @@ export default {
       password: null
     }
   }),
+  computed: {
+    baseURL () {
+      return basePath.path
+    }
+  },
   mounted () {
     this.user = new User()
     this.form.email = storageEmail(this.$route)
@@ -44,7 +50,7 @@ export default {
         localStorage.setItem('user_token', response.token)
         this.user.tryAuthJWT()
 
-        this.$router.push('/about')
+        this.$router.push('/home')
       } catch (error) {
         console.log(error.response)
       }

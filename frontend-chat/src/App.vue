@@ -1,12 +1,15 @@
 <template>
   <div id="app">
+    <chat-header />
     <router-view/>
   </div>
 </template>
 
 <script>
+import ChatHeader from '@/components/ChatHeader'
 export default {
-  created () {
+  components: {
+    ChatHeader
   }
 }
 </script>
