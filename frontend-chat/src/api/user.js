@@ -24,7 +24,7 @@ class User {
     try {
       const token = localStorage.getItem('user_token')
       if (token !== null) {
-        return (await core().get('/auth/islogged')).data.user
+        return (await core().get('/islogged')).data.user
       }
       return false
     } catch (error) {

@@ -1,21 +1,32 @@
 <template>
   <div id="app">
-    <chat-header />
     <router-view/>
   </div>
 </template>
 
 <script>
-import ChatHeader from '@/components/ChatHeader'
+// MIXINS
+import VerifyLogin from '@/utils/auth/setUserLogin'
+
 export default {
-  components: {
-    ChatHeader
+  mixins: [VerifyLogin],
+  data: () => ({
+    user: null
+  }),
+  async created () {
+    this.user = await this.isLogged()
+    if (!this.user) {
+      localStorage.removeItem('user_token')
+      this.$router.push('/verify')
+    } else {
+      this.$router.push('/')
+    }
   }
 }
 </script>
 
 <style lang="sass">
-@import './sass/colors'
+@import './sass/style'
 body
   background-color: #fcfcfc
 
@@ -25,6 +36,17 @@ body
   -moz-osx-font-smoothing: grayscale
   text-align: center
   color: #2c3e50
+  width: 100%
+  height: 100%
+  position: fixed
+  &:after
+    content: ''
+    width: 100%
+    height: 150px
+    background: #009688
+    position: fixed
+    top: 0
+    left: 0
 
 input, textarea, select
   &:focus
@@ -78,7 +100,7 @@ input, textarea, select
 
 .chat-btn
   border: none
-  background: $primary
+  background: $primaryColor
   color: white
   padding: 10px 20px
   cursor: pointer

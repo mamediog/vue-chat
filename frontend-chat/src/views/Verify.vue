@@ -39,7 +39,7 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-@import '../sass/colors'
+@import '../sass/style.sass'
 
 .chat-verify
   position: fixed

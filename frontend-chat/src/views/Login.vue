@@ -1,6 +1,7 @@
 <template>
   <div class="chat-login">
     <img alt="Vue Chat" :src="`${baseURL}img/icons/logo.png`" class="chat-logo" />
+
     <form @submit.prevent="login" class="chat-form__login">
       <input
         type="email"
@@ -9,6 +10,7 @@
         class="chat-login__input email"
         readonly
       />
+
       <input
         type="password"
         v-model="form.password"
@@ -50,7 +52,7 @@ export default {
         localStorage.setItem('user_token', response.token)
         this.user.tryAuthJWT()
 
-        this.$router.push('/home')
+        this.$router.push('/')
       } catch (error) {
         console.log(error.response)
       }
@@ -60,7 +62,7 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-@import '../sass/colors'
+@import '../sass/style.sass'
 
 .chat-login
   position: fixed

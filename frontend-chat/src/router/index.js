@@ -1,22 +1,22 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-import Verify from '../views/Verify.vue'
+import Home from '../views/isLogged/ChatHome.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
-    name: 'Verify',
-    meta: { rule: 'isEveryone' },
-    component: Verify
-  },
-  {
-    path: '/home',
     name: 'Home',
     meta: { rule: 'isLogged' },
-    component: () => import(/* webpackChunkName: "about" */ '../views/isLogged/ChatHome.vue')
+    component: Home
+  },
+  {
+    path: '/verify',
+    name: 'Verify',
+    meta: { rule: 'isEveryone' },
+    component: () => import(/* webpackChunkName: "about" */ '../views/Verify.vue')
   },
   {
     path: '/register',
