@@ -107,7 +107,6 @@ export default {
         .chat-header__settings-ul
           position: absolute
           width: 0px
-          height: 0px
           background: #fff
           box-shadow: 0 0 10px rgba(0,0,0,0.175)
           z-index: 10
@@ -129,7 +128,6 @@ export default {
         .chat-header__settings-ul--active
           transition: all .2s
           width: 150px !important
-          height: 200px !important
           visibility: visible !important
           li
             font-size: 14px !important
