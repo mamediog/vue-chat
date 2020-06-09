@@ -52,10 +52,12 @@ export default {
   flex-flow: column
   align-items: center
   justify-content: center
+  background: #fff
+  box-shadow: -3px -3px 15px 0 rgba(0,0,0,0.1), 3px 3px 15px 0 rgba(255,255,255, 255)
 
   .chat-logo
-    position: fixed
-    top: 15%
+    width: 80px
+    margin-bottom: 40px
 
   .chat-verify__btn
     margin-top: 20px

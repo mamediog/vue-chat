@@ -75,10 +75,12 @@ export default {
   flex-flow: column
   align-items: center
   justify-content: center
+  background: #fff
+  box-shadow: -3px -3px 15px 0 rgba(0,0,0,0.1), 3px 3px 15px 0 rgba(255,255,255, 255)
 
   .chat-logo
-    position: fixed
-    top: 15%
+    width: 80px
+    margin-bottom: 40px
 
   .chat-form__login
     width: 100%
@@ -87,18 +89,22 @@ export default {
     align-items: center
     justify-content: center
 
+  .chat-initial__input
+    border-top-left-radius: 0 !important
+    border: 2px solid $readMessageColor
   .chat-login__input.email
     height: 20px
     padding: 10px
-    margin-bottom: 10px
     width: 300px
     align-self: flex-start
     font-size: 15px
     border: none
-    border-radius: $radius
-    background: $inputBorder
+    border-top-right-radius: $radius
+    border-top-left-radius: $radius
+    background: $readMessageColor
     text-align: center
-    color: $inputTextColor
+    color: #fff
+    margin-left: calc((100% - 80.5%) / 2)
 
   .chat-login__btn
     margin-top: 20px

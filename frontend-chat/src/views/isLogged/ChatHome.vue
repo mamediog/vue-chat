@@ -24,7 +24,7 @@ export default {
   position: fixed
   margin-right: calc((100% - 1300px) / 2)
   margin-left: calc((100% - 1300px) / 2)
-  backgound: white
+  background: white
   box-shadow: 0 0 10px 0 rgba(0,0,0,0.2)
   display: flex
   flex-flow: row

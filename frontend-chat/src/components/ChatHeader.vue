@@ -4,8 +4,15 @@
       <img :src="user.image">
 
       <div class="chat-header__settings">
-        <span class="far fa-comment-alt"></span>
-        <span class="fas fa-ellipsis-v"></span>
+        <nav class="far fa-comment-alt"></nav>
+
+        <nav class="fas fa-ellipsis-v" onclick="window.custom.openAndHideItem(this, 'chat-header__settings-ul--active', 0)">
+          <ul class="chat-header__settings-ul">
+            <li>Logout</li>
+            <li>Perfil</li>
+            <li>Configurações</li>
+          </ul>
+        </nav>
       </div>
     </div>
 
@@ -17,19 +24,22 @@
         </div>
       </nav>
 
-      <main class="chat-header__conversation">
-        <div class="chat-header__conversation-friend">
+      <main class="chat-header__conversation" id="chat-header__conversation">
+        <div class="chat-header__conversation-friend chat-header__conversation-friend--active"
+          onclick="window.custom.changeActiveChat(this)">
           <img :src="`${baseURL}img/chat.png`" alt="Samara Florind">
           <article class="chat-header__conversation-info">
-            <h2>Amor</h2>
+            <h2>Tio Mark</h2>
             <p><span class="fas fa-check-double"></span> alguma mensagem aqui</p>
           </article>
         </div>
 
-        <div class="chat-header__conversation-friend">
+        <div class="chat-header__conversation-friend"
+          onclick="window.custom.changeActiveChat(this)"
+          v-for="i in 10" :key="i">
           <img :src="`${baseURL}img/chat.png`" alt="Samara Florind">
           <article class="chat-header__conversation-info">
-            <h2>Amor</h2>
+            <h2>Tio Mark</h2>
             <p><span class="fas fa-check-double"></span> alguma mensagem aqui</p>
           </article>
         </div>
@@ -55,6 +65,11 @@ export default {
   },
   async created () {
     this.user = await this.isLogged()
+  },
+  methods: {
+    changeActiveChat (elem) {
+      console.log(elem)
+    }
   }
 }
 </script>
@@ -79,14 +94,52 @@ export default {
       width: 50px
       border-radius: 50%
     .chat-header__settings
-      width: 50px
+      width: 70px
       display: flex
       flex-flow: row
       align-items: center
       justify-content: space-between
-      span
+      nav
         color: $iconColor
         cursor: pointer
+        width: 20px
+        position: relative
+        .chat-header__settings-ul
+          position: absolute
+          width: 0px
+          height: 0px
+          background: #fff
+          box-shadow: 0 0 10px rgba(0,0,0,0.175)
+          z-index: 10
+          border-radius: $radius
+          right: 0
+          top: 10px
+          visibility: hidden
+          transition: all .2s
+          padding: 0
+          display: flex
+          flex-flow: column
+          justify-content: flex-start
+          align-content: flex-star
+          li
+            font-size: 0
+            transition: all .2s
+            list-style: none
+
+        .chat-header__settings-ul--active
+          transition: all .2s
+          width: 150px !important
+          height: 200px !important
+          visibility: visible !important
+          li
+            font-size: 14px !important
+            transition: all .2s
+            text-align: left
+            width: calc(100% - 30px)
+            padding: 15px
+            color: #444
+            font-weight: 400
+
   .chat-header__friends
     width: 100%
     display: flex
@@ -109,7 +162,7 @@ export default {
         justify-content: center
         input
           width: calc(90% - 40px)
-          border-radius: 30px
+          border-radius: $radius
           border: none
           height: 25px
           padding: 5px 0px
@@ -122,20 +175,38 @@ export default {
           left: 33px
           font-size: 12px !important
     .chat-header__conversation
-      height: 100%
       width: 100%
+      height: calc((90vh - 55px) - 70px)
+      display: flex
+      flex-flow: column
+      justify-content: flex-start
+      align-items: center
+      z-index:9
+      overflow-x: hidden
+      overflow-y: auto
+      .chat-header__conversation-friend--active
+        margin-left: 0px
+        box-shadow: 0px 0 10px 0 rgba(0, 140, 0, 0.3)
+        border-left: 3px solid $primaryColor
+        transform: translateX(10px)
+        background: $borderLightColor !important
       .chat-header__conversation-friend
-        width: calc(100% - 40px)
-        padding: 20px
+        width: calc(97% - 40px)
+        padding: 10px 20px
         display: flex
         flex-flow: row
         justify-content: flex-start
         align-items: center
         cursor: pointer
         transition: all .5s
+        border-radius: $radius
+        margin-top: 5px
+        box-shadow: 0 2px 7px 0 rgba(0,0,0,0.1)
         &:hover
           background: $borderLightColor
           transition: all .5s
+        &:last-child
+          margin-bottom: 5px
         img
           width: 55px
           border-radius: 50%
@@ -147,7 +218,6 @@ export default {
           justify-content: center
           align-items: flex-start
           margin-left: 10px
-          border-bottom: 1px solid $borderLightColor
           padding-bottom: 10px
           *
             margin: 0

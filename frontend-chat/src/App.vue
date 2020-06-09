@@ -27,11 +27,14 @@ export default {
 
 <style lang="sass">
 @import './sass/style'
+
+*
+  font-family: Avenir, Helvetica, Arial, sans-serif
+
 body
-  background-color: #fcfcfc
+  background-color: #ebebeb
 
 #app
-  font-family: Avenir, Helvetica, Arial, sans-serif
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
   text-align: center
@@ -42,21 +45,31 @@ body
   &:after
     content: ''
     width: 100%
-    height: 150px
-    background: #009688
+    height: 200px
+    background: rgb(2,0,36)
+    background: linear-gradient(0deg, rgba(2,0,36,0) 0%, rgba(53,121,9,0) 10%, rgba(0,150,136,1) 85%)
     position: fixed
     top: 0
     left: 0
+
+::-webkit-scrollbar-track
+  background-color: transparent
+
+::-webkit-scrollbar
+  width: 5px
+  background-color: transparent
+
+::-webkit-scrollbar-thumb
+  background-color: #ccc
 
 input, textarea, select
   &:focus
     outline: none
 
 .chat-initial__input
-  border: none
-  box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.1)
-  width: calc(700px - 40px)
-  height: 70px
+  border: 2px solid $inputBorder
+  width: calc(80% - 40px)
+  height: 50px
   border-radius: $radius
   font-size: 30px
   padding: 20px
