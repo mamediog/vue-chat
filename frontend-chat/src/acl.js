@@ -23,7 +23,6 @@ export default new AclCreate({
     const userAPI = new User()
     const user = await userAPI.tryAuthJWT()
     if (user) {
-      console.log('Manoo entrou aqui porra')
       sessionStorage.setItem('user_logged', encode(user, true))
       acl.change('logged')
     }

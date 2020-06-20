@@ -1,17 +1,22 @@
 <template>
   <div class="chat-home">
     <chat-header />
+    <chat-notify />
   </div>
 </template>
 
 <script>
+// COMPONENTS
+import ChatNotify from '@/components/ChatNotify'
+
 // HEADER
 import ChatHeader from '@/components/ChatHeader'
 
 export default {
   name: 'Home',
   components: {
-    ChatHeader
+    ChatHeader,
+    ChatNotify
   }
 }
 </script>

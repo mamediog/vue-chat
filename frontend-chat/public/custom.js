@@ -1,6 +1,6 @@
 window.custom = {
   changeActiveChat: function (elem) {
-    const elements = document.getElementById('chat-header__conversation').children;
+    const elements = document.getElementById('chat-header__conversation').children[0].children;
     for (var i = 0; i < elements.length; i++) {
       if (elements[i]) { elements[i].classList.remove('chat-header__conversation-friend--active'); }
     }

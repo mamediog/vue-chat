@@ -5,6 +5,7 @@ import router from './router'
 import acl from '@/acl'
 
 Vue.config.productionTip = false
+Vue.prototype.$bus = new Vue()
 
 new Vue({
   router,

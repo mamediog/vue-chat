@@ -6,6 +6,10 @@ use App\Models\User;
 
 class UserController extends Controller
 {
+
+    /**
+     * Faz o cadastro de um usuário
+     */
     public function create(Request $request)
     {
         try {
@@ -37,6 +41,9 @@ class UserController extends Controller
         }
     }
 
+    /**
+     * Verifica se o Usuário Existe através do email
+     */
     public function hasUser(Request $request)
     {
         $user = User::where('email',$request->email)->first();
@@ -46,5 +53,51 @@ class UserController extends Controller
         }
 
         return response()->json(['status' => false]);
+    }
+
+    public function findUsers (Request $request) {
+        $users = User::where('name','like','%'.$request->search.'%')
+                ->orWhere('email', 'like', '%' . $request->search . '%')->get();
+
+        return response()->json($users);
+    }
+
+    /**
+     * Acrescenta um id no campo friend
+     * field: friend (Array)
+     */
+    public function addFriend (Request $request, $id) {
+        $friend = User::findOrFail($request->friend_id);
+
+        if ($friend) {
+            $user = User::where('_id', $id)->push(['friend' => $friend->_id]);
+
+            return response()->json(['message' => $friend->name.' foi adicionado!']);
+        }
+        return response()->json(['message' => 'Usuário não encontrado.']);
+    }
+
+    /**
+     * Acrescenta um id no campo friend
+     * field: friend (Array)
+     */
+    public function searchFriends ($id) {
+        $user = User::findOrFail($id);
+
+        if ($user) {
+            $friends = User::findMany($user->friend);
+
+            return response()->json($friends);
+        }
+    }
+
+    /**
+     * METODO PARA TESTES
+     */
+    public function users()
+    {
+        $users = User::all();
+
+        return response()->json($users);
     }
 }

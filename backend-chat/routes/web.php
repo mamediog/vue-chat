@@ -5,14 +5,32 @@ $router->group(['prefix' => '/'], function ($router) {
         return $router->app->version();
     });
 
+    
+    /**
+     * Rotas com prefixo AUTH
+     */
     $router->group(['prefix' => '/auth'], function ($router) {
         $router->post('/login', 'AuthController@login');
         $router->post('/register','UserController@create');
         $router->get('/hasuser','UserController@hasUser');
+
+
+        $router->group(['middleware' => ['auth']], function ($router) {
+            $router->post('/logout','AuthController@logout');
+            $router->get('/islogged','AuthController@isLogged');
+
+            // ROTA PARA TESTES
+            $router->get('/users','UserController@users');
+        });
     });
 
-    $router->group(['middleware' => ['auth']], function ($router) {
-        $router->get('/islogged','AuthController@isLogged');
+    /**
+     * Rotas com prefixo USER
+     */
+    $router->group(['prefix' => '/user', 'middleware' => ['auth']], function ($router) {
+        $router->post('/search','UserController@findUsers');
+        $router->post('/addfriend/{id}','UserController@addFriend');
+        $router->get('/findfriends/{id}','UserController@searchFriends');
     });
 
 });

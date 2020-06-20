@@ -26,6 +26,14 @@ class AuthController extends Controller
     }
 
     /**
+     * JWT invalida o token do usuário logado
+     */
+    public function logout () {
+        Auth::logout();
+        return response()->json(['message' => 'Successfully logged out']);
+    }
+
+    /**
      * Get the token array structure.
      *
      * @param  string $token
