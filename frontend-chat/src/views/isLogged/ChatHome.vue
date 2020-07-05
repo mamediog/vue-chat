@@ -1,6 +1,7 @@
 <template>
   <div class="chat-home">
     <chat-header />
+    <chat-box />
     <chat-notify />
   </div>
 </template>
@@ -8,6 +9,7 @@
 <script>
 // COMPONENTS
 import ChatNotify from '@/components/ChatNotify'
+import ChatBox from '@/components/ChatBox'
 
 // HEADER
 import ChatHeader from '@/components/ChatHeader'
@@ -16,6 +18,7 @@ export default {
   name: 'Home',
   components: {
     ChatHeader,
+    ChatBox,
     ChatNotify
   }
 }
@@ -37,4 +40,5 @@ export default {
   align-items: flex-start
   z-index: 1
   border-radius: $radius
+  overflow: hidden
 </style>

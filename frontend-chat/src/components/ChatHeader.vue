@@ -169,6 +169,7 @@ export default {
     align-items: center
     background: #ececec
     border-top-left-radius: $radius
+    border-right: 1px solid #e0e0e0
     img
       width: 50px
       border-radius: 50%

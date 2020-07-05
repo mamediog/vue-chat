@@ -16,13 +16,13 @@ const routes = [
     path: '/verify',
     name: 'Verify',
     meta: { rule: 'isEveryone' },
-    component: () => import(/* webpackChunkName: "about" */ '../views/Verify.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../views/ChatVerify.vue')
   },
   {
     path: '/register',
     name: 'Register',
     meta: { rule: 'isEveryone' },
-    component: () => import(/* webpackChunkName: "about" */ '../views/Register.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../views/ChatRegister.vue')
   },
   {
     path: '/notfound',
@@ -34,7 +34,7 @@ const routes = [
     path: '/login',
     name: 'Login',
     meta: { rule: 'isEveryone' },
-    component: () => import(/* webpackChunkName: "about" */ '../views/Login.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../views/ChatLogin.vue')
   }
 ]
 
