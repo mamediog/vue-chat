@@ -31,6 +31,10 @@ export default {
 *
   font-family: Avenir, Helvetica, Arial, sans-serif
 
+*
+  &:focus
+    outline: none
+
 body
   background-color: #ebebeb
 

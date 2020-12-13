@@ -33,4 +33,13 @@ $router->group(['prefix' => '/'], function ($router) {
         $router->get('/findfriends/{id}','UserController@searchFriends');
     });
 
+
+    /**
+     * Rotas com prefixo CHAT
+     */
+    // $router->group(['prefix' => '/chat', 'middleware' => ['auth']], function ($router) {
+    //     $router->post('/create','ChatController@create');
+    // });
+    $router->post('/chat/create','ChatController@create');
+
 });

@@ -25,7 +25,6 @@
       </nav>
 
       <main class="chat-header__conversation" id="chat-header__conversation">
-
         <!-- Resultados -->
         <section class="chat-header__conversation-friend-container" v-if="resultSearch.length > 0">
           <article class="chat-header__conversation-friend"
@@ -38,11 +37,10 @@
                 <h2>{{ guy.name }}</h2>
                 <p><span class="fas fa-check-double"></span> alguma mensagem aqui</p>
               </div>
-
               <span
                 class="fas fa-user-plus"
                 @click="addFriend(guy._id)"
-                v-if="!user.friend.includes(guy._id)">
+                v-if="!(user.friend || []).includes(guy._id)">
               </span>
             </div>
           </article>

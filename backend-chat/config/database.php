@@ -6,6 +6,12 @@ return [
     'default' => env('DB_CONNECTION', 'mongodb'),
     'connections' => [
 
+        'mongodb_conn' => [
+            'driver' => 'mongodb',
+            'dsn'=>'mongodb+srv://oministack:oministack@cluster0.avj1e.mongodb.net/vue-chat?retryWrites=true&w=majority',
+            'database' => 'my_data',
+        ],
+
         'sqlite' => [
             'driver' => 'sqlite',
             'url' => env('DATABASE_URL'),
