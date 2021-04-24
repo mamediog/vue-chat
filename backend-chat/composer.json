@@ -5,7 +5,7 @@
     "license": "MIT",
     "type": "project",
     "require": {
-        "php": "^7.2.5",
+        "php": ">=7.4.1",
         "jenssegers/mongodb": "^3.6",
         "laravel/lumen-framework": "5.8.*",
         "palanik/lumen-cors": "dev-master",

@@ -46,17 +46,15 @@
           </article>
         </section>
 
-        <!-- Amigos -->
+        <!-- Conversas -->
         <section class="chat-header__conversation-friend-container" v-if="resultSearch.length <= 0">
-          <article class="chat-header__conversation-friend"
-          onclick="window.custom.changeActiveChat(this)"
-          v-for="(friend, fid) in friends" :key="fid">
-            <div v-if="friend._id !== user._id" class="chat-header__conversation-info-row">
-              <img v-if="friend.image !== undefined" :src="friend.image" alt="User">
+          <article class="chat-header__conversation-friend" onclick="window.custom.changeActiveChat(this)" @click="initChat(chat)" v-for="(chat, cid) in chats" :key="cid">
+            <div v-if="((chat.friend || {})._id) !== user._id" class="chat-header__conversation-info-row">
+              <img v-if="(chat.friend || {}).image !== undefined" :src="(chat.friend || {}).image" alt="User">
 
               <div class="chat-header__conversation-info">
-                <h2>{{ friend.name }}</h2>
-                <p><span class="fas fa-check-double"></span> alguma mensagem aqui</p>
+                <h2>{{ (chat.friend || {}).name }}</h2>
+                <p><span class="fas fa-check-double"></span> {{ ((chat.messages || [])[(chat.messages || '').length -1] || '').message }} </p>
               </div>
             </div>
           </article>
@@ -80,6 +78,8 @@ export default {
     user: null,
     userAPI: null,
     resultSearch: [],
+    privateChat: {},
+    chats: [],
     friends: []
   }),
   computed: {
@@ -90,12 +90,16 @@ export default {
   async created () {
     this.userAPI = new User()
     this.user = await this.isLogged()
-    this.findFriends()
+    // this.findFriends()
+  },
+  mounted () {
+    this.getChats()
   },
   methods: {
     changeActiveChat (elem) {
       console.log(elem)
     },
+
     async logout () {
       try {
         await this.userAPI.logout()
@@ -105,6 +109,7 @@ export default {
         console.log(error.response)
       }
     },
+
     async findFriends () {
       try {
         var response = await this.userAPI.findFriends(this.user._id)
@@ -113,6 +118,7 @@ export default {
         console.log(error.response)
       }
     },
+
     async addFriend (friendId) {
       try {
         var response = await this.userAPI.addFriend(friendId, this.user._id)
@@ -130,6 +136,7 @@ export default {
         console.log(error.response)
       }
     },
+
     async searchData () {
       try {
         var response = await this.userAPI.searchUsers(this.search)
@@ -138,6 +145,7 @@ export default {
         console.log(error.response)
       }
     },
+
     cleanSelectedUser () {
       const elements = document.getElementById('chat-header__conversation').children[0].children
       console.log(elements)
@@ -146,6 +154,24 @@ export default {
           elements[i].classList.remove('chat-header__conversation-friend--active')
         }
       }
+    },
+
+    async getChats () {
+      try {
+        var response = await this.userAPI.getChats()
+        this.chats = response
+        this.chats = await Promise.all(this.chats.map(async (chat) => {
+          chat.friend = await this.userAPI.searchUser(chat.sender !== this.user._id ? chat.sender : chat.receiver)
+          return chat
+        }))
+      } catch (error) {
+        console.log(error.response)
+      }
+    },
+
+    initChat (chat) {
+      this.$bus.$emit('get-chat', (chat || {}))
+      chat = {}
     }
   }
 }

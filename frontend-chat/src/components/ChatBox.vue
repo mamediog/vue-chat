@@ -1,51 +1,106 @@
 <template>
-  <section class="chat-box">
-    <header class="chat-box__header">
-      <section class="chat-box__header-user">
-        <img :src="`${baseURL}img/chat.png`" alt="Friend">
-        <h2>Tio Mark</h2>
+  <div class="chat-box">
+    <div v-if="chat">
+      <header class="chat-box__header">
+        <section class="chat-box__header-user">
+          <img :src="chat.friend.image" alt="Friend">
+          <h2>{{ chat.friend.name }}</h2>
+        </section>
+
+        <nav class="chat-box__header-options">
+          <ul class="chat-box__header-options-ul">
+            <li><span class="fas fa-paperclip"></span></li>
+          </ul>
+        </nav>
+      </header>
+
+      <article class="chat-box__content"
+        :style="{ 'background-image': `url(${baseURL}img/background-chat.png)` }">
+        <section class="chat-box__conversation">
+          <div v-for="(message, mid) in chat.messages" :key="mid"
+            :class="{ 'chat-box__message': true, 'chat-box__message-receive': message.userId !== user._id}">
+            <p class="chat-box__message-text">{{  (message || {}).message }} <small class="chat-box__time"> {{ (message || {}).date }}</small></p>
+          </div>
+        </section>
+      </article>
+
+      <section class="chat-box__form">
+        <input type="text" v-model="message" @keyup.enter="sendMessage((message || {}))" placeholder="Type a message">
+        <button @click="sendMessage((message || {}))"><span class="fas fa-chevron-right"></span></button>
       </section>
-
-      <nav class="chat-box__header-options">
-        <ul class="chat-box__header-options-ul">
-          <li><span class="fas fa-paperclip"></span></li>
-        </ul>
-      </nav>
-    </header>
-
-    <article class="chat-box__content"
-      :style="{ 'background-image': `url(${baseURL}img/background-chat.png)` }">
-      <section class="chat-box__conversation">
-        <div class="chat-box__message">
-          <p class="chat-box__message-text"> Escrevi alguma coisa aqui </p>
-        </div>
-
-        <div class="chat-box__message chat-box__message-receive">
-          <p class="chat-box__message-text"> Escrevi outra coisa </p>
-        </div>
-
-        <div class="chat-box__message">
-          <p class="chat-box__message-text">
-            Escrevi alguma coisa aqui só pra ocupar espaço e ver até onde vai a largura desse texto
-          </p>
-        </div>
-      </section>
-    </article>
-
-    <section class="chat-box__form">
-      <input type="text" placeholder="Type a message">
-      <button><span class="fas fa-chevron-right"></span></button>
-    </section>
-  </section>
+    </div>
+  </div>
 </template>
 
 <script>
 import basePath from '@/utils/baseURL'
+import User from '@/api/user'
+
+// MIXINS
+import VerifyLogin from '@/utils/auth/setUserLogin'
 
 export default {
+  data: () => ({
+    chat: {},
+    message: ''
+  }),
+  mixins: [VerifyLogin],
   computed: {
     baseURL () {
       return basePath.path
+    }
+  },
+  async created () {
+    this.userAPI = new User()
+    this.user = await this.isLogged()
+
+    this.$bus.$on('get-chat', this.getChat)
+  },
+  destroyed () {
+    this.$bus.$off('get-chat', this.getChat)
+  },
+  mounted () {
+    console.log(this.conversation)
+  },
+  methods: {
+    getChat (chat) {
+      this.chat = chat
+    },
+
+    async sendMessage (message) {
+      var dateNow = new Date()
+      var dateFormat = this.dateFormatBR(dateNow)
+      var lastMessage = {}
+
+      if (message !== '') {
+        lastMessage = {
+          user: this.user.name,
+          userId: this.user._id,
+          date: dateFormat.replace(' ', ', '),
+          message: message
+        }
+
+        this.chat.messages.push(lastMessage)
+        this.message = ''
+
+        console.log(lastMessage)
+
+        var response = await this.userAPI.sendMessage(this.chat._id, lastMessage)
+        console.log(response)
+      } else {
+        alert('Digite alguma mensagem..')
+      }
+    },
+
+    dateFormatBR (date) {
+      return date.toLocaleString('pt-BR', {
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit'
+      }).replace(/\//g, '/')
     }
   }
 }
@@ -135,6 +190,10 @@ export default {
             width: 0
             border: 10px solid
             border-color: $messageBackgroundColor transparent transparent transparent
+          .chat-box__time
+            font-size: 9px
+            padding-left: 20px
+            color: #787878
       .chat-box__message-receive
         justify-content: flex-start
         .chat-box__message-text

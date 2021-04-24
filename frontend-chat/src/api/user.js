@@ -51,8 +51,27 @@ class User {
     return (await core().post('/user/addfriend/' + id, { friend_id: friendId })).data
   }
 
+  async searchUser (id) {
+    return (await core().get('/user/findfriends/searchuser/' + id)).data
+  }
+
   async allUsers () {
     return (await core().get('/users')).data
+  }
+
+  /**
+   * Chat requests
+   */
+  async initChat (friend) {
+    return (await core().get('/chat/' + friend)).data
+  }
+
+  async getChats () {
+    return (await core().get('/chat/all')).data
+  }
+
+  async sendMessage (chatId, messages) {
+    return (await core().post('/chat/message/' + chatId, { messages: messages })).data
   }
 }
 

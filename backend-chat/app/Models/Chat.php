@@ -8,7 +8,9 @@ class Chat extends Model
     protected $collection = 'chats';
 
     protected $fillable = [
-        'users',
+        'receiver',
+        'sender',
+        'members',
         'messages',
     ];
 }

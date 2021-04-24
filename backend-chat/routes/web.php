@@ -31,15 +31,19 @@ $router->group(['prefix' => '/'], function ($router) {
         $router->post('/search','UserController@findUsers');
         $router->post('/addfriend/{id}','UserController@addFriend');
         $router->get('/findfriends/{id}','UserController@searchFriends');
+        $router->get('/findfriends/searchuser/{id}','UserController@searchUser');
+        
     });
 
 
     /**
      * Rotas com prefixo CHAT
-     */
-    // $router->group(['prefix' => '/chat', 'middleware' => ['auth']], function ($router) {
-    //     $router->post('/create','ChatController@create');
-    // });
-    $router->post('/chat/create','ChatController@create');
+     */    
+    $router->group(['prefix' => '/chat', 'middleware' => ['auth']], function ($router) {
+        $router->get('/all','ChatController@getAllChats');
+        $router->post('/create','ChatController@create');
+        $router->post('/message/{id}','ChatController@sendMessage');
+        $router->get('/{id}','ChatController@getChat');
+    });
 
 });

@@ -91,6 +91,12 @@ class UserController extends Controller
         }
     }
 
+    public function searchUser ($id) {
+        $user = User::findOrFail($id);
+
+        return response()->json($user); 
+    }
+
     /**
      * METODO PARA TESTES
      */
