@@ -349,6 +349,8 @@ export default {
                 display: flex
                 justify-content: flex-start
                 align-items: center
+                &:after
+                  content: '..'
                 span
                   font-size: 10px
                   color: $readMessageColor

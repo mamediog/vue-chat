@@ -25,7 +25,7 @@
       </article>
 
       <section class="chat-box__form">
-        <input type="text" v-model="message" @keyup.enter="sendMessage((message || {}))" placeholder="Type a message">
+        <textarea type="text" v-model="message" @keyup.enter="sendMessage((message || {}))" placeholder="Type a message"></textarea>
         <button @click="sendMessage((message || {}))"><span class="fas fa-chevron-right"></span></button>
       </section>
     </div>
@@ -63,32 +63,44 @@ export default {
   },
 
   methods: {
+    /**
+     * When open a chat, the getChat is called to set a new chat in ChatBox
+     *
+     * @param {object} chat
+     * @return void
+     */
     getChat (chat) {
       this.chat = chat
+      setTimeout(() => {
+        this.gotoBottom('.chat-box__conversation')
+      }, 300)
     },
 
-    connect (onOpen) {
+    /**
+     * Open Connection with websocket
+     *
+     * @return void
+     */
+    connect () {
       var self = this
-      // Conectando
+
       self.ws = new WebSocket('ws://localhost:8090')
-      // Evento que será chamado ao abrir conexão
-      self.ws.onopen = function () {
-        // self.addSuccessNotification('Conectado')
-        // Se houver método de retorno
-        if (onOpen) {
-          onOpen()
-        }
-      }
-      // Evento que será chamado quando houver erro na conexão
+
       self.ws.onerror = function () {
         self.addErrorNotification('Não foi possível conectar-se ao servidor')
       }
-      // Evento que será chamado quando recebido dados do servidor
+
       self.ws.onmessage = function (e) {
         self.getOnMessage(JSON.parse(e.data))
       }
     },
 
+    /**
+     * Set message in messages array received from web socket
+     *
+     * @param {object} data
+     * @return void
+     */
     getOnMessage (data) {
       if ((this.chat || {}).messages) {
         this.chat.messages.push(data.message)
@@ -98,6 +110,12 @@ export default {
       }
     },
 
+    /**
+     * Send a message
+     *
+     * @param {string} message
+     * @return void
+     */
     async sendMessage (message) {
       var self = this
       var dateNow = new Date()
@@ -113,10 +131,11 @@ export default {
         }
 
         this.chat.messages.push(lastMessage)
+        this.message = ''
+
         setTimeout(() => {
           this.gotoBottom('.chat-box__conversation')
         }, 300)
-        this.message = ''
 
         self.ws.send(
           JSON.stringify({
@@ -125,18 +144,30 @@ export default {
           })
         )
 
-        var response = await this.userAPI.sendMessage(this.chat._id, lastMessage)
-        console.log(response)
+        await this.userAPI.sendMessage(this.chat._id, lastMessage)
       } else {
         alert('Digite alguma mensagem..')
       }
     },
 
+    /**
+     * Get element by selector, and set scroll to bottom "0"
+     * getting the max height and setting on scrollTop
+     *
+     * @param {string} el
+     * @return void
+     */
     gotoBottom (el) {
       var elem = document.querySelector(el)
       elem.scrollTop = elem.scrollHeight
     },
 
+    /**
+     * Just to format date to Brazilian format
+     *
+     * @param {date} date
+     * @return void
+     */
     dateFormatBR (date) {
       return date.toLocaleString('pt-BR', {
         year: 'numeric',
@@ -184,7 +215,7 @@ export default {
       h2
         font-size: 16px
         margin-left: 10px
-        font-weight: 100
+        font-weight: 600
     .chat-box__header-options
       margin-right: 20px
       .chat-box__header-options-ul
@@ -257,7 +288,7 @@ export default {
     display: flex
     justify-content: center
     align-items: center
-    input
+    textarea
       width: calc(80% - 20px)
       height: calc(50px - 20px)
       padding: 10px
