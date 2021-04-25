@@ -3,8 +3,8 @@
     <div v-if="chat">
       <header class="chat-box__header">
         <section class="chat-box__header-user">
-          <img :src="chat.friend.image" alt="Friend">
-          <h2>{{ chat.friend.name }}</h2>
+          <img :src="(chat.friend || {}).image" alt="Friend">
+          <h2>{{ (chat.friend || {}).name }}</h2>
         </section>
 
         <nav class="chat-box__header-options">
@@ -42,7 +42,8 @@ import VerifyLogin from '@/utils/auth/setUserLogin'
 export default {
   data: () => ({
     chat: {},
-    message: ''
+    message: '',
+    ws: null
   }),
   mixins: [VerifyLogin],
   computed: {
@@ -55,19 +56,50 @@ export default {
     this.user = await this.isLogged()
 
     this.$bus.$on('get-chat', this.getChat)
+    this.connect()
   },
   destroyed () {
     this.$bus.$off('get-chat', this.getChat)
   },
-  mounted () {
-    console.log(this.conversation)
-  },
+
   methods: {
     getChat (chat) {
       this.chat = chat
     },
 
+    connect (onOpen) {
+      var self = this
+      // Conectando
+      self.ws = new WebSocket('ws://localhost:8090')
+      // Evento que será chamado ao abrir conexão
+      self.ws.onopen = function () {
+        // self.addSuccessNotification('Conectado')
+        // Se houver método de retorno
+        if (onOpen) {
+          onOpen()
+        }
+      }
+      // Evento que será chamado quando houver erro na conexão
+      self.ws.onerror = function () {
+        self.addErrorNotification('Não foi possível conectar-se ao servidor')
+      }
+      // Evento que será chamado quando recebido dados do servidor
+      self.ws.onmessage = function (e) {
+        self.getOnMessage(JSON.parse(e.data))
+      }
+    },
+
+    getOnMessage (data) {
+      if ((this.chat || {}).messages) {
+        this.chat.messages.push(data.message)
+        setTimeout(() => {
+          this.gotoBottom('.chat-box__conversation')
+        }, 300)
+      }
+    },
+
     async sendMessage (message) {
+      var self = this
       var dateNow = new Date()
       var dateFormat = this.dateFormatBR(dateNow)
       var lastMessage = {}
@@ -81,15 +113,28 @@ export default {
         }
 
         this.chat.messages.push(lastMessage)
+        setTimeout(() => {
+          this.gotoBottom('.chat-box__conversation')
+        }, 300)
         this.message = ''
 
-        console.log(lastMessage)
+        self.ws.send(
+          JSON.stringify({
+            chat: this.chat._id,
+            message: lastMessage
+          })
+        )
 
         var response = await this.userAPI.sendMessage(this.chat._id, lastMessage)
         console.log(response)
       } else {
         alert('Digite alguma mensagem..')
       }
+    },
+
+    gotoBottom (el) {
+      var elem = document.querySelector(el)
+      elem.scrollTop = elem.scrollHeight
     },
 
     dateFormatBR (date) {
@@ -133,6 +178,8 @@ export default {
       align-items: center
       img
         width: 50px
+        height: 50px
+        object-fit: cover
         border-radius: 50%
       h2
         font-size: 16px
@@ -159,10 +206,8 @@ export default {
     .chat-box__conversation
       width: 100%
       height: calc(100% - 80px)
-      display: flex
-      flex-flow: column
-      justify-content: flex-end
-      align-items: flex-start
+      flex-flow: column-reverse
+      overflow-y: auto
       .chat-box__message
         width: calc(100% - 40px)
         padding: 0 20px

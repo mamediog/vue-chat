@@ -9,7 +9,10 @@ class ChatController extends Controller
 {
 
     /**
-     * Faz o cadastro de um novo chat
+     * Create a new Chat
+     *
+     * @param Request $request
+     * @return void
      */
     public function create(Request $request)
     {
@@ -36,18 +39,36 @@ class ChatController extends Controller
         }
     }
 
+    /**
+     * Get Chat by a friend "id"
+     *
+     * @param [type] $id
+     * @return void
+     */
     public function getChat($id) {
         $chat = Chat::where('friend', $id)->get();
 
         return response()->json($chat);
     }
 
+    /**
+     * Get all chats from logged user
+     *
+     * @return void
+     */
     public function getAllChats() {
         $chats = Chat::where('members', 'all', [\Auth::id()])->get();
 
         return response()->json($chats);
     }
 
+    /**
+     * Send a message to the current chat
+     *
+     * @param Request $request
+     * @param [type] $chatId
+     * @return void
+     */
     public function sendMessage(Request $request, $chatId) {
         $chat = Chat::where('_id', $chatId)->push('messages', $request->messages);
 

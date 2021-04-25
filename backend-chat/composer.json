@@ -6,8 +6,10 @@
     "type": "project",
     "require": {
         "php": ">=7.4.1",
+        "cboden/ratchet": "^0.4.3",
         "jenssegers/mongodb": "^3.6",
         "laravel/lumen-framework": "5.8.*",
+        "lcobucci/jwt": "3.3.3",
         "palanik/lumen-cors": "dev-master",
         "tymon/jwt-auth": "1.0.0-rc.5",
         "vluzrmos/lumen-cors": "2.1.*"

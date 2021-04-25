@@ -196,6 +196,8 @@ export default {
     border-right: 1px solid #e0e0e0
     img
       width: 50px
+      height: 50px
+      object-fit: cover
       border-radius: 50%
     .chat-header__settings
       width: 70px
@@ -319,9 +321,11 @@ export default {
             img
               width: 55px
               border-radius: 50%
+              height: 55px
+              object-fit: cover
             .chat-header__conversation-info
               height: 100%
-              width: 100%
+              width: calc(100% - 65px)
               display: flex
               flex-flow: column
               justify-content: center
@@ -337,6 +341,14 @@ export default {
               p
                 font-size: 14px
                 color: $inputTextColor
+                text-overflow: ellipsis
+                overflow: hidden
+                width: 85%
+                height: 1.2em
+                white-space: nowrap
+                display: flex
+                justify-content: flex-start
+                align-items: center
                 span
                   font-size: 10px
                   color: $readMessageColor

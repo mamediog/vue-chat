@@ -27,6 +27,8 @@ export default {
 
 <style lang="sass">
 @import './sass/style'
+html
+  scroll-behavior: smooth
 
 *
   font-family: Avenir, Helvetica, Arial, sans-serif

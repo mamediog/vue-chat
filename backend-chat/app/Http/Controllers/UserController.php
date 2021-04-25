@@ -8,7 +8,10 @@ class UserController extends Controller
 {
 
     /**
-     * Faz o cadastro de um usuário
+     * Create a new User
+     *
+     * @param Request $request
+     * @return void
      */
     public function create(Request $request)
     {
@@ -42,7 +45,10 @@ class UserController extends Controller
     }
 
     /**
-     * Verifica se o Usuário Existe através do email
+     * Verify if User exist
+     *
+     * @param Request $request
+     * @return boolean
      */
     public function hasUser(Request $request)
     {
@@ -63,8 +69,11 @@ class UserController extends Controller
     }
 
     /**
-     * Acrescenta um id no campo friend
-     * field: friend (Array)
+     * Set a new friend getting the "id" and set in array
+     *
+     * @param Request $request
+     * @param [type] $id
+     * @return void
      */
     public function addFriend (Request $request, $id) {
         $friend = User::findOrFail($request->friend_id);
@@ -78,8 +87,10 @@ class UserController extends Controller
     }
 
     /**
-     * Acrescenta um id no campo friend
-     * field: friend (Array)
+     * Search a friend by "id"
+     *
+     * @param [type] $id
+     * @return void
      */
     public function searchFriends ($id) {
         $user = User::findOrFail($id);
@@ -91,19 +102,15 @@ class UserController extends Controller
         }
     }
 
+    /**
+     * Search user by "id"
+     *
+     * @param [type] $id
+     * @return void
+     */
     public function searchUser ($id) {
         $user = User::findOrFail($id);
 
         return response()->json($user); 
-    }
-
-    /**
-     * METODO PARA TESTES
-     */
-    public function users()
-    {
-        $users = User::all();
-
-        return response()->json($users);
     }
 }

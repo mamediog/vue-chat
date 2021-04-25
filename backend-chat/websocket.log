@@ -1,0 +1,344 @@
+PHP Warning:  Module 'mongodb' already loaded in Unknown on line 0
+New connection! (380)
+New connection! (391)
+Connection 380 has disconnected
+Connection 391 has disconnected
+New connection! (396)
+Connection 396 has disconnected
+New connection! (399)
+New connection! (402)
+Connection 399 has disconnected
+Connection 402 has disconnected
+New connection! (405)
+Connection 405 sending message "{"chat":"6085784233b6ab04b461dba3","message":{"user":"Ana Carolina","userId":"608573c433b6ab04b461dba2","date":"25/04/2021, 11:46:10","message":"que bomm"}}" to 0 other connections
+Connection 405 sending message "{"chat":"6085784233b6ab04b461dba3","message":{"user":"Ana Carolina","userId":"608573c433b6ab04b461dba2","date":"25/04/2021, 11:48:06","message":"aeeee"}}" to 0 other connections
+New connection! (408)
+New connection! (411)
+New connection! (414)
+Connection 408 has disconnected
+Connection 411 has disconnected
+Connection 405 has disconnected
+Connection 414 has disconnected
+New connection! (417)
+New connection! (420)
+New connection! (423)
+Connection 420 has disconnected
+Connection 423 has disconnected
+Connection 417 has disconnected
+New connection! (426)
+New connection! (429)
+Connection 429 sending message "{"chat":"6085784233b6ab04b461dba3","message":{"user":"Guilherme Mamedio","userId":"5fd64ed1c1340864761ef843","date":"25/04/2021, 11:53:16","message":"chegou aqui?"}}" to 1 other connection
+Connection 429 sending message "{"chat":"6085784233b6ab04b461dba3","message":{"user":"Guilherme Mamedio","userId":"5fd64ed1c1340864761ef843","date":"25/04/2021, 11:54:11","message":"chegou mano??"}}" to 1 other connection
+New connection! (432)
+Connection 426 has disconnected
+Connection 432 has disconnected
+Connection 429 has disconnected
+New connection! (435)
+Connection 435 has disconnected
+New connection! (438)
+New connection! (441)
+Connection 441 sending message "{"chat":"6085784233b6ab04b461dba3","message":{"user":"Guilherme Mamedio","userId":"5fd64ed1c1340864761ef843","date":"25/04/2021, 12:00:03","message":"já simm amor"}}" to 1 other connection
+New connection! (444)
+New connection! (447)
+Connection 444 sending message "{"chat":"6085784233b6ab04b461dba3","message":{"user":"Guilherme Mamedio","userId":"5fd64ed1c1340864761ef843","date":"25/04/2021, 12:01:23","message":"olaa?"}}" to 3 other connections
+New connection! (450)
+New connection! (453)
+Connection 453 sending message "{"chat":"6085784233b6ab04b461dba3","message":{"user":"Guilherme Mamedio","userId":"5fd64ed1c1340864761ef843","date":"25/04/2021, 12:02:05","message":"aeeee"}}" to 5 other connections
+New connection! (456)
+New connection! (459)
+Connection 459 sending message "{"chat":"6085784233b6ab04b461dba3","message":{"user":"Guilherme Mamedio","userId":"5fd64ed1c1340864761ef843","date":"25/04/2021, 12:02:42","message":"aeeee"}}" to 7 other connections
+Connection 441 has disconnected
+Connection 459 has disconnected
+Connection 444 has disconnected
+Connection 453 has disconnected
+Connection 456 has disconnected
+Connection 450 has disconnected
+Connection 438 has disconnected
+Connection 447 has disconnected
+New connection! (462)
+New connection! (465)
+New connection! (468)
+New connection! (471)
+New connection! (474)
+New connection! (477)
+Connection 477 sending message "{"chat":"6085784233b6ab04b461dba3","message":{"user":"Guilherme Mamedio","userId":"5fd64ed1c1340864761ef843","date":"25/04/2021, 12:03:50","message":"aeeeee"}}" to 5 other connections
+Connection 477 sending message "{"chat":"6085784233b6ab04b461dba3","message":{"user":"Guilherme Mamedio","userId":"5fd64ed1c1340864761ef843","date":"25/04/2021, 12:03:59","message":"meno?"}}" to 5 other connections
+Connection 465 has disconnected
+Connection 474 has disconnected
+Connection 468 has disconnected
+New connection! (480)
+Connection 471 has disconnected
+Connection 477 has disconnected
+Connection 462 has disconnected
+Connection 480 has disconnected
+New connection! (483)
+New connection! (486)
+Connection 486 sending message "{"chat":"6085784233b6ab04b461dba3","message":{"user":"Guilherme Mamedio","userId":"5fd64ed1c1340864761ef843","date":"25/04/2021, 12:06:39","message":"mano?"}}" to 1 other connection
+Connection 483 has disconnected
+New connection! (489)
+New connection! (492)
+New connection! (495)
+Connection 492 sending message "{"chat":"6085784233b6ab04b461dba3","message":{"user":"Guilherme Mamedio","userId":"5fd64ed1c1340864761ef843","date":"25/04/2021, 12:10:27","message":"cassilda"}}" to 3 other connections
+New connection! (498)
+New connection! (499)
+Connection 498 sending message "{"chat":"6085784233b6ab04b461dba3","message":{"user":"Guilherme Mamedio","userId":"5fd64ed1c1340864761ef843","date":"25/04/2021, 12:12:25","message":"aeeee"}}" to 5 other connections
+New connection! (504)
+New connection! (505)
+Connection 505 sending message "{"chat":"6085784233b6ab04b461dba3","message":{"user":"Guilherme Mamedio","userId":"5fd64ed1c1340864761ef843","date":"25/04/2021, 12:14:48","message":"aeeeee"}}" to 7 other connections
+New connection! (510)
+New connection! (511)
+Connection 495 has disconnected
+Connection 504 has disconnected
+Connection 510 has disconnected
+Connection 499 has disconnected
+New connection! (516)
+Connection 516 has disconnected
+Connection 505 has disconnected
+Connection 486 has disconnected
+Connection 498 has disconnected
+Connection 489 has disconnected
+Connection 492 has disconnected
+Connection 511 has disconnected
+New connection! (519)
+New connection! (522)
+Connection 519 has disconnected
+New connection! (525)
+New connection! (528)
+New connection! (529)
+Connection 528 has disconnected
+Connection 525 has disconnected
+Connection 529 has disconnected
+Connection 522 has disconnected
+New connection! (534)
+New connection! (537)
+Connection 537 sending message "{"chat":"6085784233b6ab04b461dba3","message":{"user":"Guilherme Mamedio","userId":"5fd64ed1c1340864761ef843","date":"25/04/2021, 12:20:10","message":"aeee"}}" to 1 other connection
+New connection! (540)
+New connection! (543)
+Connection 543 sending message "{"chat":"6085784233b6ab04b461dba3","message":{"user":"Guilherme Mamedio","userId":"5fd64ed1c1340864761ef843","date":"25/04/2021, 12:20:36","message":"aeeeee"}}" to 3 other connections
+New connection! (546)
+New connection! (547)
+New connection! (552)
+New connection! (553)
+Connection 553 sending message "{"chat":"6085784233b6ab04b461dba3","message":{"user":"Ana Carolina","userId":"608573c433b6ab04b461dba2","date":"25/04/2021, 12:23:34","message":"manoooo"}}" to 7 other connections
+New connection! (558)
+New connection! (559)
+New connection! (564)
+New connection! (567)
+Connection 553 has disconnected
+Connection 567 has disconnected
+Connection 546 has disconnected
+Connection 534 has disconnected
+Connection 540 has disconnected
+Connection 559 has disconnected
+Connection 543 has disconnected
+Connection 558 has disconnected
+Connection 547 has disconnected
+Connection 552 has disconnected
+Connection 564 has disconnected
+Connection 537 has disconnected
+New connection! (570)
+New connection! (573)
+Connection 573 sending message "{"chat":"6085784233b6ab04b461dba3","message":{"user":"Guilherme Mamedio","userId":"5fd64ed1c1340864761ef843","date":"25/04/2021, 12:28:31","message":"aeeee"}}" to 1 other connection
+Connection 573 sending message "{"chat":"6085784233b6ab04b461dba3","message":{"user":"Guilherme Mamedio","userId":"5fd64ed1c1340864761ef843","date":"25/04/2021, 12:28:42","message":"manoooo"}}" to 1 other connection
+New connection! (576)
+New connection! (577)
+New connection! (582)
+New connection! (585)
+Connection 570 has disconnected
+Connection 576 has disconnected
+Connection 582 has disconnected
+New connection! (588)
+Connection 585 sending message "{"chat":"6085784233b6ab04b461dba3","message":{"user":"Guilherme Mamedio","userId":"5fd64ed1c1340864761ef843","date":"25/04/2021, 12:29:53","message":"aaa"}}" to 3 other connections
+New connection! (591)
+New connection! (592)
+Connection 591 sending message "{"chat":"6085784233b6ab04b461dba3","message":{"user":"Guilherme Mamedio","userId":"5fd64ed1c1340864761ef843","date":"25/04/2021, 12:32:03","message":"aeee"}}" to 5 other connections
+Connection 591 sending message "{"chat":"6085784233b6ab04b461dba3","message":{"user":"Guilherme Mamedio","userId":"5fd64ed1c1340864761ef843","date":"25/04/2021, 12:32:10","message":"kkkk"}}" to 5 other connections
+New connection! (597)
+New connection! (598)
+New connection! (603)
+New connection! (604)
+Connection 588 has disconnected
+Connection 598 has disconnected
+Connection 603 has disconnected
+Connection 592 has disconnected
+Connection 577 has disconnected
+Connection 591 has disconnected
+Connection 604 has disconnected
+Connection 573 has disconnected
+Connection 597 has disconnected
+Connection 585 has disconnected
+New connection! (609)
+New connection! (612)
+New connection! (615)
+New connection! (616)
+Connection 612 has disconnected
+Connection 615 has disconnected
+Connection 609 has disconnected
+Connection 616 has disconnected
+New connection! (621)
+New connection! (624)
+New connection! (627)
+New connection! (628)
+New connection! (633)
+New connection! (636)
+New connection! (639)
+New connection! (640)
+Connection 639 sending message "{"chat":"6085784233b6ab04b461dba3","message":{"user":"Guilherme Mamedio","userId":"5fd64ed1c1340864761ef843","date":"25/04/2021, 12:36:07","message":"aeeee"}}" to 7 other connections
+Connection 639 sending message "{"chat":"6085784233b6ab04b461dba3","message":{"user":"Guilherme Mamedio","userId":"5fd64ed1c1340864761ef843","date":"25/04/2021, 12:36:17","message":"aeeeee"}}" to 7 other connections
+New connection! (645)
+New connection! (646)
+Connection 645 has disconnected
+Connection 636 has disconnected
+Connection 627 has disconnected
+Connection 621 has disconnected
+Connection 640 has disconnected
+Connection 639 has disconnected
+Connection 646 has disconnected
+Connection 628 has disconnected
+Connection 624 has disconnected
+Connection 633 has disconnected
+New connection! (651)
+New connection! (654)
+Connection 654 sending message "{"chat":"6085784233b6ab04b461dba3","message":{"user":"Guilherme Mamedio","userId":"5fd64ed1c1340864761ef843","date":"25/04/2021, 12:37:05","message":"teste"}}" to 1 other connection
+New connection! (657)
+New connection! (658)
+Connection 658 sending message "{"chat":"6085784233b6ab04b461dba3","message":{"user":"Guilherme Mamedio","userId":"5fd64ed1c1340864761ef843","date":"25/04/2021, 12:38:46","message":"aeee"}}" to 3 other connections
+New connection! (663)
+New connection! (664)
+Connection 654 has disconnected
+Connection 663 has disconnected
+Connection 657 has disconnected
+Connection 658 has disconnected
+Connection 664 has disconnected
+Connection 651 has disconnected
+New connection! (669)
+New connection! (672)
+New connection! (675)
+New connection! (678)
+Connection 672 has disconnected
+Connection 678 has disconnected
+New connection! (681)
+Connection 681 sending message "{"chat":"6085784233b6ab04b461dba3","message":{"user":"Guilherme Mamedio","userId":"5fd64ed1c1340864761ef843","date":"25/04/2021, 12:46:04","message":"testando"}}" to 2 other connections
+Connection 675 has disconnected
+Connection 669 has disconnected
+Connection 681 has disconnected
+New connection! (684)
+New connection! (687)
+Connection 684 has disconnected
+Connection 687 has disconnected
+New connection! (690)
+New connection! (693)
+Connection 690 has disconnected
+New connection! (696)
+Connection 693 has disconnected
+New connection! (699)
+Connection 696 has disconnected
+New connection! (702)
+Connection 699 has disconnected
+New connection! (705)
+Connection 705 sending message "{"chat":"6085784233b6ab04b461dba3","message":{"user":"Guilherme Mamedio","userId":"5fd64ed1c1340864761ef843","date":"25/04/2021, 12:48:28","message":"aaaaaa"}}" to 1 other connection
+Connection 705 has disconnected
+New connection! (708)
+Connection 708 sending message "{"chat":"6085784233b6ab04b461dba3","message":{"user":"Guilherme Mamedio","userId":"5fd64ed1c1340864761ef843","date":"25/04/2021, 12:49:55","message":"chegou a mensagem?"}}" to 1 other connection
+Connection 708 sending message "{"chat":"6085784233b6ab04b461dba3","message":{"user":"Guilherme Mamedio","userId":"5fd64ed1c1340864761ef843","date":"25/04/2021, 12:50:13","message":"aeeeeee"}}" to 1 other connection
+Connection 708 sending message "{"chat":"6085784233b6ab04b461dba3","message":{"user":"Guilherme Mamedio","userId":"5fd64ed1c1340864761ef843","date":"25/04/2021, 12:50:44","message":"aeeeeee"}}" to 1 other connection
+Connection 708 has disconnected
+New connection! (711)
+Connection 702 has disconnected
+New connection! (714)
+Connection 711 sending message "{"chat":"6085784233b6ab04b461dba3","message":{"user":"Guilherme Mamedio","userId":"5fd64ed1c1340864761ef843","date":"25/04/2021, 12:54:30","message":"qweqwdqwdqw"}}" to 1 other connection
+Connection 711 has disconnected
+New connection! (717)
+Connection 714 has disconnected
+New connection! (720)
+Connection 717 has disconnected
+New connection! (723)
+Connection 720 has disconnected
+New connection! (726)
+Connection 723 has disconnected
+New connection! (729)
+Connection 729 has disconnected
+New connection! (732)
+Connection 732 sending message "{"chat":"6085784233b6ab04b461dba3","message":{"user":"Guilherme Mamedio","userId":"5fd64ed1c1340864761ef843","date":"25/04/2021, 13:00:47","message":"aeeee"}}" to 1 other connection
+Connection 732 has disconnected
+New connection! (735)
+Connection 726 has disconnected
+New connection! (738)
+Connection 735 sending message "{"chat":"6085784233b6ab04b461dba3","message":{"user":"Guilherme Mamedio","userId":"5fd64ed1c1340864761ef843","date":"25/04/2021, 14:36:53","message":"console"}}" to 1 other connection
+Connection 735 has disconnected
+Connection 738 has disconnected
+New connection! (741)
+New connection! (744)
+Connection 744 has disconnected
+New connection! (747)
+New connection! (750)
+Connection 741 has disconnected
+Connection 747 has disconnected
+New connection! (753)
+Connection 753 has disconnected
+New connection! (756)
+New connection! (759)
+New connection! (762)
+New connection! (765)
+Connection 765 has disconnected
+Connection 756 has disconnected
+Connection 750 has disconnected
+New connection! (768)
+Connection 759 has disconnected
+Connection 762 has disconnected
+New connection! (771)
+Connection 768 sending message "{"chat":"6085784233b6ab04b461dba3","message":{"user":"Guilherme Mamedio","userId":"5fd64ed1c1340864761ef843","date":"25/04/2021, 14:44:53","message":"agora foi né?"}}" to 1 other connection
+Connection 768 has disconnected
+Connection 771 has disconnected
+New connection! (774)
+New connection! (777)
+Connection 777 sending message "{"chat":"6085784233b6ab04b461dba3","message":{"user":"Guilherme Mamedio","userId":"5fd64ed1c1340864761ef843","date":"25/04/2021, 14:46:35","message":"manoooo"}}" to 1 other connection
+Connection 774 sending message "{"chat":"6085784233b6ab04b461dba3","message":{"user":"Ana Carolina","userId":"608573c433b6ab04b461dba2","date":"25/04/2021, 14:46:43","message":"agora foiiii"}}" to 1 other connection
+Connection 777 has disconnected
+Connection 774 has disconnected
+New connection! (780)
+New connection! (783)
+Connection 780 sending message "{"chat":"6085784233b6ab04b461dba3","message":{"user":"Guilherme Mamedio","userId":"5fd64ed1c1340864761ef843","date":"25/04/2021, 14:51:38","message":"ééé´e agora?"}}" to 1 other connection
+New connection! (786)
+Connection 786 has disconnected
+Connection 780 has disconnected
+Connection 783 has disconnected
+New connection! (789)
+New connection! (792)
+Connection 789 sending message "{"chat":"6085784233b6ab04b461dba3","message":{"user":"Guilherme Mamedio","userId":"5fd64ed1c1340864761ef843","date":"25/04/2021, 14:54:15","message":"aeeeeeee"}}" to 1 other connection
+Connection 789 sending message "{"chat":"6085784233b6ab04b461dba3","message":{"user":"Guilherme Mamedio","userId":"5fd64ed1c1340864761ef843","date":"25/04/2021, 14:54:23","message":"chegouuu porra"}}" to 1 other connection
+Connection 789 has disconnected
+Connection 792 has disconnected
+New connection! (795)
+New connection! (798)
+Connection 798 sending message "{"chat":"6085784233b6ab04b461dba3","message":{"user":"Guilherme Mamedio","userId":"5fd64ed1c1340864761ef843","date":"25/04/2021, 14:55:48","message":"ai sim menó"}}" to 1 other connection
+Connection 798 sending message "{"chat":"6085784233b6ab04b461dba3","message":{"user":"Guilherme Mamedio","userId":"5fd64ed1c1340864761ef843","date":"25/04/2021, 14:55:57","message":"oloco menó"}}" to 1 other connection
+Connection 798 sending message "{"chat":"6085784233b6ab04b461dba3","message":{"user":"Guilherme Mamedio","userId":"5fd64ed1c1340864761ef843","date":"25/04/2021, 14:56:04","message":"caraca menó"}}" to 1 other connection
+New connection! (801)
+New connection! (804)
+Connection 801 sending message "{"chat":"6085784233b6ab04b461dba3","message":{"user":"Ana Carolina","userId":"608573c433b6ab04b461dba2","date":"25/04/2021, 14:58:02","message":"mandando alguma coisa"}}" to 3 other connections
+Connection 801 sending message "{"chat":"6085784233b6ab04b461dba3","message":{"user":"Ana Carolina","userId":"608573c433b6ab04b461dba2","date":"25/04/2021, 14:58:08","message":"tá porra"}}" to 3 other connections
+Connection 804 sending message "{"chat":"6085784233b6ab04b461dba3","message":{"user":"Guilherme Mamedio","userId":"5fd64ed1c1340864761ef843","date":"25/04/2021, 14:58:16","message":"mandando duas vezes ?"}}" to 3 other connections
+Connection 804 sending message "{"chat":"6085784233b6ab04b461dba3","message":{"user":"Guilherme Mamedio","userId":"5fd64ed1c1340864761ef843","date":"25/04/2021, 14:58:37","message":"mandei duas vezes?"}}" to 3 other connections
+New connection! (807)
+New connection! (810)
+Connection 801 has disconnected
+Connection 795 has disconnected
+Connection 807 has disconnected
+Connection 798 has disconnected
+Connection 804 has disconnected
+Connection 810 has disconnected
+New connection! (813)
+New connection! (816)
+Connection 813 has disconnected
+Connection 816 has disconnected
+New connection! (819)
+New connection! (822)
+Connection 822 sending message "{"chat":"6085784233b6ab04b461dba3","message":{"user":"Guilherme Mamedio","userId":"5fd64ed1c1340864761ef843","date":"25/04/2021, 15:00:55","message":"alou"}}" to 1 other connection
+Connection 822 sending message "{"chat":"6085784233b6ab04b461dba3","message":{"user":"Guilherme Mamedio","userId":"5fd64ed1c1340864761ef843","date":"25/04/2021, 15:01:04","message":"ai sim "}}" to 1 other connection
+Connection 819 sending message "{"chat":"6085784233b6ab04b461dba3","message":{"user":"Ana Carolina","userId":"608573c433b6ab04b461dba2","date":"25/04/2021, 15:01:14","message":"ai sim o que?"}}" to 1 other connection
+Connection 822 sending message "{"chat":"6085784233b6ab04b461dba3","message":{"user":"Guilherme Mamedio","userId":"5fd64ed1c1340864761ef843","date":"25/04/2021, 15:01:47","message":"aloouuuuu"}}" to 1 other connection
+Connection 819 sending message "{"chat":"6085784233b6ab04b461dba3","message":{"user":"Ana Carolina","userId":"608573c433b6ab04b461dba2","date":"25/04/2021, 15:01:53","message":"aloouuu o que?"}}" to 1 other connection
+Connection 819 sending message "{"chat":"6085784233b6ab04b461dba3","message":{"user":"Ana Carolina","userId":"608573c433b6ab04b461dba2","date":"25/04/2021, 15:04:56","message":"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like)."}}" to 1 other connection
+Connection 822 sending message "{"chat":"6085784233b6ab04b461dba3","message":{"user":"Guilherme Mamedio","userId":"5fd64ed1c1340864761ef843","date":"25/04/2021, 15:13:14","message":"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'"}}" to 1 other connection
+Connection 819 sending message "{"chat":"6085784233b6ab04b461dba3","message":{"user":"Ana Carolina","userId":"608573c433b6ab04b461dba2","date":"25/04/2021, 15:16:32","message":{}}}" to 1 other connection
