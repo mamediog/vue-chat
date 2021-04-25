@@ -10,8 +10,8 @@ Em desenvolvimento:
 - Iniciar uma nova conversa (FEITO)
 - Enviar mensagens (FEITO)
 - Listar Mensagens (FEITO)
-- Aplicar WEBSOCKET (EM DESENVOLIMENTO)
+- Aplicar WEBSOCKET (FEITO)
 - Correções de bugs (EM DESENVOLVIMENTO)
-- Aplicar novas funcionalidades (NA FILA)
+- Aplicar novas funcionalidades e melhorias (NA FILA)
 
 
