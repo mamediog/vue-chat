@@ -11,47 +11,50 @@ Após clonar o projeto, basta executar:
 
     Segue abaixo o arquivo .env de exemplo do back-end.
     
-    APP_NAME=LumenAPP_ENV=local
-    APP_KEY=
-    APP_DEBUG=true
-    APP_URL=http://localhost:5050
-    APP_TIMEZONE=UTC
+    - APP_NAME=LumenAPP_ENV=local
+    - APP_KEY=
+    - APP_DEBUG=true
+    - APP_URL=http://localhost:5050
+    - APP_TIMEZONE=UTC
 
-    FRONT_URL=http://localhost:9090
+    - FRONT_URL=http://localhost:9090
 
-    #MAIL_DRIVER=smtp
-    #MAIL_HOST=smtp.gmail.com
-    #MAIL_PORT=465
-    #MAIL_USERNAME=
-    #MAIL_PASSWORD=
-    #MAIL_ENCRYPTION=ssl
-    #MAIL_FROM_ADDRESS=
-    #MAIL_FROM_NAME=
+    - #MAIL_DRIVER=smtp
+    - #MAIL_HOST=smtp.gmail.com
+    - #MAIL_PORT=465
+    - #MAIL_USERNAME=
+    - #MAIL_PASSWORD=
+    - #MAIL_ENCRYPTION=ssl
+    - #MAIL_FROM_ADDRESS=
+    - #MAIL_FROM_NAME=
 
-    LOG_CHANNEL=stack
-    LOG_SLACK_WEBHOOK_URL=
+    - LOG_CHANNEL=stack
+    - LOG_SLACK_WEBHOOK_URL=
 
-    DB_CONNECTION=seu_mongo_db
-    #DB_HOST=localhost
-    #DB_PORT=27017
-    #DB_DATABASE=
-    #DB_USERNAME=
-    #DB_PASSWORD=
+    - DB_CONNECTION=seu_mongo_db
+    - #DB_HOST=localhost
+    - #DB_PORT=27017
+    - #DB_DATABASE=
+    - #DB_USERNAME=
+    - #DB_PASSWORD=
 
-    CACHE_DRIVER=file
-    QUEUE_CONNECTION=database
+    - CACHE_DRIVER=file
+    - QUEUE_CONNECTION=database
 
-    JWT_SECRET=F8KC3gVBCT5Qieq3Qrb3ZrizsTCgSoCl7xNh19PJLeypMqZHLMox4vsf5BXuUAkq
+    - JWT_SECRET=
 
 - No front-end
-    * rode o comando `yarn` para instalar as dependencias
+    * Rode o comando `yarn` para instalar as dependencias
+ 
     * Configure seu arquivo .env.development como mostra abaixo:
-    `VUE_APP_API=http://localhost:5050
-    VUE_APP_API_TIMEOUT=10000`
+    - VUE_APP_API=http://localhost:5050
+    - VUE_APP_API_TIMEOUT=10000
+    
     * arquivo .env:
-    `VUE_APP_I18N_LOCALE=pt
-    VUE_APP_I18N_FALLBACK_LOCALE=pt
-    BASE_URL=/`
+    - VUE_APP_I18N_LOCALE=pt
+    - VUE_APP_I18N_FALLBACK_LOCALE=pt
+    - BASE_URL=/
+    
     * Para iniciar o projeto basta executar o comando `yarn serve --port 9090`, lembrando que `9090` é a porta que estamos utilizando no exemplo do arquivo *.env* do *back-end*.
 
 ## Sprint
