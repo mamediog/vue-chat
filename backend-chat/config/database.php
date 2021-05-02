@@ -12,6 +12,16 @@ return [
             'database' => 'my_data',
         ],
 
+        /* 
+            Peço que não utilizem a URL de conexão acima
+            pois é apenas um servidor de teste utilizado por mim, no qual vocês não terão acesso.
+            Mas vocês conseguem criar um serviço grátis para usar o mongo atlas através do link:
+            https://www.mongodb.com/cloud/atlas2
+
+            DUVIDAS? 
+            https://stackoverflow.com/questions/44979599/connect-laravel-jenssegers-to-mongodb-atlas-cluster
+        */
+
         'sqlite' => [
             'driver' => 'sqlite',
             'url' => env('DATABASE_URL'),

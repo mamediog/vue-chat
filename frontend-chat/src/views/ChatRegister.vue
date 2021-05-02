@@ -1,6 +1,9 @@
 <template>
   <div class="chat-register">
-    <img alt="Vue Chat" :src="form.image !== null ? form.image : `${baseURL}img/icons/logo.png`" class="chat-logo" id="chat-logo"/>
+    <label for="chat-input__file" class="chat-register__choose-photo">
+      <img alt="Vue Chat" :src="form.image !== null ? form.image : `${baseURL}img/icons/logo.png`" class="chat-logo" id="chat-logo"/>
+      <img :src="`${baseURL}img/camera-solid.svg`" alt="Camera" class="chat-register__choose-photo-icon">
+    </label>
 
     <input type="file" class="chat-input__file" @change="onInputChange()" id="chat-input__file" accept=".jpg, .jpeg, .png"/>
 
@@ -132,10 +135,29 @@ export default {
       font-size: 20px
       height: 55px
 
-  .chat-logo
-    position: fixed
-    top: 25%
+  .chat-register__choose-photo
+    cursor: pointer
+    display: flex
+    justify-content: center
+    align-items: center
     width: 100px
+    height: 100px
+    margin-bottom: 40px
+    position: relative
+    .chat-logo
+      width: 100%
+      height: 100%
+      object-fit: cover
+      border-radius: 50%
+      background: #fff
+    .chat-register__choose-photo-icon
+      width: 20px
+      position: absolute
+      bottom: 10px
+      right: -5px
+
+  #chat-input__file
+    display: none
 
   .chat-register__btn
     margin-top: 10px
