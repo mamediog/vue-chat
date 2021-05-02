@@ -10,8 +10,8 @@ Após clonar o projeto, basta executar:
     * rode `php -S 0.0.0.0:{porta} -t public` para iniciar seu back-end.
 
     Segue abaixo o arquivo .env de exemplo do back-end.
-    `APP_NAME=Lumen
-    APP_ENV=local
+    
+    APP_NAME=LumenAPP_ENV=local
     APP_KEY=
     APP_DEBUG=true
     APP_URL=http://localhost:5050
@@ -41,7 +41,7 @@ Após clonar o projeto, basta executar:
     CACHE_DRIVER=file
     QUEUE_CONNECTION=database
 
-    JWT_SECRET=F8KC3gVBCT5Qieq3Qrb3ZrizsTCgSoCl7xNh19PJLeypMqZHLMox4vsf5BXuUAkq`
+    JWT_SECRET=F8KC3gVBCT5Qieq3Qrb3ZrizsTCgSoCl7xNh19PJLeypMqZHLMox4vsf5BXuUAkq
 
 - No front-end
     * rode o comando `yarn` para instalar as dependencias
