@@ -47,13 +47,16 @@ Após clonar o projeto, basta executar:
     * Rode o comando `yarn` para instalar as dependencias
  
     * Configure seu arquivo .env.development como mostra abaixo:
-    - VUE_APP_API=http://localhost:5050
-    - VUE_APP_API_TIMEOUT=10000
+
+       VUE_APP_API=http://localhost:5050  
+       VUE_APP_API_TIMEOUT=10000  
     
     * arquivo .env:  
+
          VUE_APP_I18N_LOCALE=pt  
          VUE_APP_I18N_FALLBACK_LOCALE=pt  
-         BASE_URL=/  
+         BASE_URL=/
+         
     
     * Para iniciar o projeto basta executar o comando `yarn serve --port 9090`, lembrando que `9090` é a porta que estamos utilizando no exemplo do arquivo *.env* do *back-end*.
 
