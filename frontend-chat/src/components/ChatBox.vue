@@ -1,6 +1,6 @@
 <template>
   <div class="chat-box">
-    <div v-if="chat">
+    <div v-if="chat.friend">
       <header class="chat-box__header">
         <section class="chat-box__header-user">
           <img :src="(chat.friend || {}).image" alt="Friend">
@@ -28,6 +28,13 @@
         <textarea type="text" v-model="message" @keyup.enter="sendMessage((message || {}))" placeholder="Type a message"></textarea>
         <button @click="sendMessage((message || {}))"><span class="fas fa-chevron-right"></span></button>
       </section>
+    </div>
+
+    <div v-else class="chat-box__empty">
+      <img alt="Vue Chat" :src="`${baseURL}img/icons/logo.png`" class="chat-logo">
+      <h1>Inicie uma conversa</h1>
+      <p>Projeto open source usando Vuejs + Lumen</p>
+      <small>Não é permitido a venda! Apenas por motivos educacionais.</small>
     </div>
   </div>
 </template>
@@ -144,7 +151,7 @@ export default {
           })
         )
 
-        await this.userAPI.sendMessage(this.chat._id, lastMessage)
+        this.userAPI.sendMessage(this.chat._id, lastMessage)
       } else {
         alert('Digite alguma mensagem..')
       }
@@ -184,6 +191,22 @@ export default {
 
 <style lang="sass" scoped>
 @import '@/sass/style.sass'
+.chat-box__empty
+  height: calc(100vh - 96px)
+  display: flex
+  flex-flow: column
+  justify-content: center
+  align-items: center
+  user-select: none
+  h1
+    font-weight: 400
+    margin-top: 20px
+  p
+    margin-top: 20px
+  small
+    margin-top: 10px
+  img
+    width: 100px
 
 .chat-box
   width: calc(100% - 400px)

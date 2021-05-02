@@ -7,6 +7,10 @@ use Ratchet\Http\HttpServer;
 use Ratchet\WebSocket\WsServer;
 use App\Http\Controllers\WebSocketController;
 
+/**
+ * TO RUN WEBSOCKET USE THE COMMAND BELLOW
+ * nohup php artisan websocket:init > websocket.log &
+ */
 
 class WebSocketServer extends Command
 {
