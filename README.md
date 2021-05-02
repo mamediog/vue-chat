@@ -67,4 +67,10 @@ Após clonar o projeto, basta executar:
 - Correções de bugs (EM DESENVOLVIMENTO)
 - Aplicar novas funcionalidades e melhorias (NA FILA)
 
+![Screenshot_1](https://user-images.githubusercontent.com/19272954/116827217-49edb700-ab6e-11eb-8ddf-f4b9f1eb0c8f.png)
+![Screenshot_2](https://user-images.githubusercontent.com/19272954/116827224-4d813e00-ab6e-11eb-8149-a622a5b57694.png)
+![Screenshot_3](https://user-images.githubusercontent.com/19272954/116827226-4f4b0180-ab6e-11eb-9b70-682a8328f27e.png)
+![Screenshot_4](https://user-images.githubusercontent.com/19272954/116827228-507c2e80-ab6e-11eb-89c9-025cced284f2.png)
+![Screenshot_5](https://user-images.githubusercontent.com/19272954/116827229-51ad5b80-ab6e-11eb-8e9f-5ae7d5f198c0.png)
+
 
