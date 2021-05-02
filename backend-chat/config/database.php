@@ -6,12 +6,11 @@ return [
     'default' => env('DB_CONNECTION', 'mongodb'),
     'connections' => [
 
-        // FEITO A CHAMADA LÁ NO .ENV
-        /*'seu_mongo_db' => [
+        'mongodb_conn' => [
             'driver' => 'mongodb',
-            'dsn'=>'LINK DE CONEXÃO AQUI DO ATLAS MONGODB OU OUTRA CONEXÃO DA SUA PREFERÊNCIA',
+            'dsn'=>'mongodb+srv://oministack:oministack@cluster0.avj1e.mongodb.net/vue-chat?retryWrites=true&w=majority',
             'database' => 'my_data',
-        ],*/
+        ],
 
         'sqlite' => [
             'driver' => 'sqlite',
