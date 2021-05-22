@@ -59,13 +59,45 @@
             </div>
           </article>
         </section>
+
+        <!-- Amigos -->
+        <section class="chat-header__conversation-friend-container friends" v-if="resultSearch.length <= 0 && (friends || []).length > 0">
+          <div class="chat-header__conversation-friend-container-friend-title">
+            <nav class="chat-header__friends-search">
+
+              <div class="chat-header__friends-search-close-container">
+                <span class="chat-header__friends-search-close" @click="toggleNewConversation()">
+                  <i class="fas fa-chevron-left"></i>
+                </span>
+              </div>
+
+              <div class="chat-header__search-input">
+                <span class="fas fa-search"></span>
+                <input type="text" v-model="search" @keyup="searchData(search)" placeholder="Start a new chat">
+              </div>
+            </nav>
+          </div>
+          <article class="chat-header__conversation-friend" onclick="window.custom.changeActiveChat(this)" @click="newChat(friend)" v-for="(friend, fid) in friends" :key="fid">
+            <div v-if="((friend || {})._id) !== user._id" class="chat-header__conversation-info-row">
+              <img v-if="(friend || {}).image !== undefined" :src="(friend || {}).image" alt="User">
+
+              <div class="chat-header__conversation-info">
+                <h2>{{ (friend || {}).name }}</h2>
+              </div>
+            </div>
+          </article>
+        </section>
       </main>
     </div>
+
+    <button class="chat-header__start-chat-btn" @click="toggleNewConversation()">
+      <i class="fas fa-comment-alt"></i>
+    </button>
   </header>
 </template>
 
 <script>
-import User from '@/api/user'
+import Routes from '@/api/routes'
 
 // MIXINS
 import VerifyLogin from '@/utils/auth/setUserLogin'
@@ -88,9 +120,9 @@ export default {
     }
   },
   async created () {
-    this.userAPI = new User()
+    this.routesAPI = new Routes()
     this.user = await this.isLogged()
-    // this.findFriends()
+    this.findFriends()
   },
   mounted () {
     this.getChats()
@@ -102,7 +134,7 @@ export default {
 
     async logout () {
       try {
-        await this.userAPI.logout()
+        await this.routesAPI.logout()
         localStorage.setItem('user_token', '')
         this.$router.push('/verify')
       } catch (error) {
@@ -112,7 +144,7 @@ export default {
 
     async findFriends () {
       try {
-        var response = await this.userAPI.findFriends(this.user._id)
+        var response = await this.routesAPI.findFriends(this.user._id)
         this.friends = response
       } catch (error) {
         console.log(error.response)
@@ -121,7 +153,7 @@ export default {
 
     async addFriend (friendId) {
       try {
-        var response = await this.userAPI.addFriend(friendId, this.user._id)
+        var response = await this.routesAPI.addFriend(friendId, this.user._id)
 
         this.search = ''
 
@@ -139,7 +171,7 @@ export default {
 
     async searchData () {
       try {
-        var response = await this.userAPI.searchUsers(this.search)
+        var response = await this.routesAPI.searchUsers(this.search)
         this.resultSearch = response
       } catch (error) {
         console.log(error.response)
@@ -158,10 +190,10 @@ export default {
 
     async getChats () {
       try {
-        var response = await this.userAPI.getChats()
+        var response = await this.routesAPI.getChats()
         this.chats = response
         this.chats = await Promise.all(this.chats.map(async (chat) => {
-          chat.friend = await this.userAPI.searchUser(chat.sender !== this.user._id ? chat.sender : chat.receiver)
+          chat.friend = await this.routesAPI.searchUser(chat.sender !== this.user._id ? chat.sender : chat.receiver)
           return chat
         }))
       } catch (error) {
@@ -170,8 +202,46 @@ export default {
     },
 
     initChat (chat) {
+      console.log(chat)
       this.$bus.$emit('get-chat', (chat || {}))
       chat = {}
+    },
+
+    async newChat (friend) {
+      try {
+        var response = await this.routesAPI.findChat(friend.id)
+        if ((response || []).length <= 0 || !response) {
+          var chat = {
+            sender: this.user._id,
+            members: [this.user._id, friend._id],
+            receiver: friend._id,
+            messages: [
+              {
+                user: this.user.name,
+                date: this.$$dateFormatBR(new Date()),
+                userId: this.user._id,
+                message: ''
+              }
+            ]
+          }
+
+          var data = await this.routesAPI.newChat(chat)
+
+          this.initChat(data.chat)
+          this.getChats()
+          this.toggleNewConversation()
+        }
+      } catch (error) {
+        console.log('[ChatHeader] - (newChat)', error)
+      }
+    },
+
+    toggleNewConversation () {
+      var modal = document.querySelector('.chat-header__conversation-friend-container.friends')
+
+      if (modal) {
+        modal.classList.toggle('active')
+      }
     }
   }
 }
@@ -184,6 +254,7 @@ export default {
   width: 400px
   height: 100%
   border-right: 1px solid $borderLightColor
+  position: relative
   .chat-header__user
     width: calc(100% - 40px)
     padding: 10px 20px
@@ -360,4 +431,46 @@ export default {
               top: 0px
               right: 0px
               color: $primaryColor
+      .active
+        transform: translateX(0%) !important
+        transition: all .4s
+      .chat-header__conversation-friend-container.friends
+        top: 0
+        height: 90vh
+        background: #fff
+        position: absolute
+        transform: translateX(-100%)
+        transition: all .4s
+        z-index: 3
+        .chat-header__conversation-friend-container-friend-title
+          width: 100%
+          .chat-header__friends-search
+            flex-flow: column
+            padding-bottom: 50px
+            justify-content: flex-start
+            align-items: flex-start
+            .chat-header__friends-search-close-container
+              width: calc(100% - 40px)
+              padding: 10px 20px
+              display: flex
+              justify-content: flex-start
+              align-items: center
+              .chat-header__friends-search-close
+                font-size: 25px
+                color: $iconColor
+                cursor: pointer
+  .chat-header__start-chat-btn
+    position: absolute
+    bottom: 10px
+    right: 10px
+    border: 0
+    width: 55px
+    height: 55px
+    background: $primaryColor
+    color: #fff
+    border-radius: $radius
+    cursor: pointer
+    z-index: 2
+    i
+      font-size: 20px
 </style>

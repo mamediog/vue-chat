@@ -41,7 +41,7 @@
 
 <script>
 import basePath from '@/utils/baseURL'
-import User from '@/api/user'
+import Routes from '@/api/routes'
 
 // MIXINS
 import VerifyLogin from '@/utils/auth/setUserLogin'
@@ -59,7 +59,7 @@ export default {
     }
   },
   async created () {
-    this.userAPI = new User()
+    this.routesAPI = new Routes()
     this.user = await this.isLogged()
 
     this.$bus.$on('get-chat', this.getChat)
@@ -126,7 +126,7 @@ export default {
     async sendMessage (message) {
       var self = this
       var dateNow = new Date()
-      var dateFormat = this.dateFormatBR(dateNow)
+      var dateFormat = this.$$dateFormatBR(dateNow)
       var lastMessage = {}
 
       if (message !== '') {
@@ -151,7 +151,7 @@ export default {
           })
         )
 
-        this.userAPI.sendMessage(this.chat._id, lastMessage)
+        this.routesAPI.sendMessage(this.chat._id, lastMessage)
       } else {
         alert('Digite alguma mensagem..')
       }
@@ -167,23 +167,6 @@ export default {
     gotoBottom (el) {
       var elem = document.querySelector(el)
       elem.scrollTop = elem.scrollHeight
-    },
-
-    /**
-     * Just to format date to Brazilian format
-     *
-     * @param {date} date
-     * @return void
-     */
-    dateFormatBR (date) {
-      return date.toLocaleString('pt-BR', {
-        year: 'numeric',
-        month: '2-digit',
-        day: '2-digit',
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit'
-      }).replace(/\//g, '/')
     }
   }
 }

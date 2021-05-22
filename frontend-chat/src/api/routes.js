@@ -2,7 +2,7 @@ import core from './core'
 // import encode from '@/utils/encode.native'
 // import decode from '@/utils/decode.native'
 
-class User {
+class Routes {
   /**
    *
    * Auth requests
@@ -62,8 +62,12 @@ class User {
   /**
    * Chat requests
    */
-  async initChat (friend) {
+  async findChat (friend) {
     return (await core().get('/chat/' + friend)).data
+  }
+
+  async newChat (chat) {
+    return (await core().post('/chat/create', chat)).data
   }
 
   async getChats () {
@@ -75,4 +79,4 @@ class User {
   }
 }
 
-export default User
+export default Routes

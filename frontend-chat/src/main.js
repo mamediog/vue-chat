@@ -4,6 +4,11 @@ import './registerServiceWorker'
 import router from './router'
 import acl from '@/acl'
 
+/**
+ * Global Utils
+ */
+import '@/utils/index'
+
 Vue.config.productionTip = false
 Vue.prototype.$bus = new Vue()
 

@@ -46,14 +46,14 @@
 </template>
 
 <script>
-import User from '@/api/user'
+import Routes from '@/api/routes'
 import basePath from '@/utils/baseURL'
 import storageEmail from '@/utils/auth/storageEmail'
 
 export default {
   name: 'Home',
   mounted () {
-    this.user = new User()
+    this.user = new Routes()
     this.form.email = storageEmail(this.$route)
   },
   computed: {

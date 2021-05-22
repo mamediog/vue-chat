@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import User from '@/api/user'
+import Routes from '@/api/routes'
 import basePath from '@/utils/baseURL'
 
 export default {
@@ -23,7 +23,7 @@ export default {
   },
   methods: {
     async hasUser (email) {
-      this.user = new User()
+      this.user = new Routes()
       var response = await this.user.hasUser(email)
 
       if (response.status === true) {

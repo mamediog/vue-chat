@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import User from '@/api/user'
+import Routes from '@/api/routes'
 import storageEmail from '@/utils/auth/storageEmail'
 import basePath from '@/utils/baseURL'
 
@@ -42,7 +42,7 @@ export default {
     }
   },
   mounted () {
-    this.user = new User()
+    this.user = new Routes()
     this.form.email = storageEmail(this.$route)
   },
   methods: {

@@ -1,11 +1,11 @@
-import User from '@/api/user'
+import Routes from '@/api/routes'
 
 export default {
   data: () => ({
     user: null
   }),
   created () {
-    this.user = new User()
+    this.user = new Routes()
   },
   methods: {
     async isLogged () {
