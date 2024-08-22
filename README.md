@@ -1,5 +1,5 @@
 # Vue chat
-Aplicativo Web similar ao whatsappweb. O Intuito desse projeto é ter uma experiência completa de desenvolvimento de um whatsapp web com diferentes tecnologias. O Projeto é totalmente educativo e sem fins lucrativos. Tiro do meu tempo livre para aprender e aplicar novas funcionalidades.
+Aplicativo Web similar ao Whatsapp Web. O Intuito desse projeto é ter uma experiência completa de desenvolvimento de um whatsapp web com diferentes tecnologias. O Projeto é totalmente educativo e sem fins lucrativos. Tiro do meu tempo livre para aprender e aplicar novas funcionalidades.
 
 ## Funcionamento
 Após clonar o projeto, basta executar:
